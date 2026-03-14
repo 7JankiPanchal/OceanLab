@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec49",
+                        "background-light": "#f8faf9",
+                        "background-dark": "#0a120c",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<title>EcoSort - Rewards Dashboard</title>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="relative flex min-h-screen w-full flex-col">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Top Navigation -->
+<header class="flex items-center justify-between border-b border-slate-200 dark:border-white/5 bg-white dark:bg-background-dark px-6 md:px-10 py-3 sticky top-0 z-50">
+<div class="flex items-center gap-4">
+<div class="text-primary flex items-center justify-center bg-primary/10 p-1.5 rounded-lg">
+<span class="material-symbols-outlined text-2xl">recycling</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-black leading-tight tracking-tight">EcoSort</h2>
+</div>
+<div class="flex flex-1 justify-end gap-4 items-center">
+<nav class="hidden md:flex gap-6 mr-6">
+<a class="text-sm font-bold text-primary" href="#">Dashboard</a>
+<a class="text-sm font-bold text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">Activities</a>
+<a class="text-sm font-bold text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">Community</a>
+</nav>
+<div class="flex gap-2">
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-primary/20 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-primary/20 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-primary ring-4 ring-primary/10" data-alt="User profile avatar of a smiling man" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAehRoNOtKRSXgWsdEA_7e_SbxU7EPAIlWQlsBsH4TMNzLdWhA9ny1pIk3-9qg_m62KAYYzVIFX9xjBS5ch8iMZtm6JcT7e5PttteJHvCalwQfV3YRHyOsSo8mt9gcYguS7Kjm3fMUZBW6_PU2v3YCjxMvJNLyv39EHGNW4FrSw3_vymvBZ-5riVL_NbKXhZZsxucBKuI3-r1CfkC8qGpyazYlCN5FAtvJmfv5n8NaWz6wQN3nW92h-awJdPBrDBUOJizHEQ96wAo4");'></div>
+</div>
+</header>
+<main class="flex-1 max-w-[1200px] mx-auto w-full p-4 md:p-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: User Profile & Stats -->
+<div class="lg:col-span-4 flex flex-col gap-6">
+<div class="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-slate-100 dark:border-white/5 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl">energy_savings_leaf</span>
+</div>
+<div class="flex flex-col items-center text-center relative z-10">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-24 mb-4 border-4 border-primary/20 shadow-xl" data-alt="Detailed user profile photo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBLlx4_J2RXp_V_jBKDxnShDOZqIH19UWnM8RsPnlMzsrWb6K6PXo3dDp1M8hoe4hnS0nbdluiV-tsmHRPSim_cbTDj94-gIIk-4b6QJiM0K7JSDPw1uhUWjS43OmRFJuguBOTNfz2DfUFsIgx2XQkBJ49dGzpQKBY7JofsjWTUCksLR9291uivHmPmFJkFY9YQ-uKb2kUGV1HxE2_M4XpYGFwAnqAiuJvp6KDKIvwKCs_UezIGAZtLSl4c4SohT1fxnCatMUH0tdc");'></div>
+<h3 class="text-xl font-black">Alex Rivera</h3>
+<p class="text-primary font-bold text-sm bg-primary/10 px-3 py-0.5 rounded-full mt-1">Elite Recycler</p>
+<div class="mt-6 flex flex-col w-full gap-2">
+<div class="flex justify-between text-[10px] font-black uppercase tracking-widest text-slate-500">
+<span>Progress to Level 15</span>
+<span class="text-primary">85%</span>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-3">
+<div class="bg-gradient-to-r from-emerald-400 to-primary h-3 rounded-full shadow-[0_0_10px_rgba(19,236,73,0.3)]" style="width: 85%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-gradient-to-br from-emerald-500 to-primary text-white rounded-2xl p-5 flex flex-col gap-1 shadow-xl shadow-primary/20 relative overflow-hidden">
+<div class="absolute -right-4 -top-4 opacity-20">
+<span class="material-symbols-outlined text-6xl">stars</span>
+</div>
+<span class="material-symbols-outlined text-3xl font-fill">token</span>
+<p class="text-[10px] font-bold uppercase tracking-wider opacity-80">Eco Points</p>
+<p class="text-3xl font-black">12,450</p>
+</div>
+<div class="bg-gradient-to-br from-indigo-500 to-violet-600 text-white rounded-2xl p-5 flex flex-col gap-1 shadow-xl shadow-indigo-500/20 relative overflow-hidden">
+<div class="absolute -right-4 -top-4 opacity-20">
+<span class="material-symbols-outlined text-6xl">leaderboard</span>
+</div>
+<span class="material-symbols-outlined text-3xl font-fill">emoji_events</span>
+<p class="text-[10px] font-bold uppercase tracking-wider opacity-80">Global Rank</p>
+<p class="text-3xl font-black">#128</p>
+</div>
+</div>
+<!-- Community Leaderboard Mini -->
+<div class="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-slate-100 dark:border-white/5">
+<div class="flex items-center justify-between mb-5">
+<h4 class="font-black text-lg tracking-tight">Top Recyclers</h4>
+<a class="text-primary text-[10px] font-black uppercase tracking-widest hover:underline flex items-center gap-1" href="#">
+                                View All <span class="material-symbols-outlined text-sm">chevron_right</span>
+</a>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3 p-2 rounded-xl hover:bg-slate-50 dark:hover:bg-white/5 transition-colors">
+<span class="font-black text-amber-500 w-4 text-center">1</span>
+<div class="size-10 rounded-full border-2 border-amber-400 bg-center bg-cover" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCAz5he9Klqvivakmbf9ow5YhJc_OVnrYP85iTVzcWRd-aLzIXgBRr2wRhONInx5tbW-0czivphYK8Y9j-wbUfEQ3QQJU7iWJYebLhFuOwqZB1RQh2PoGMjduXKpvxUWDB8_-dCVBHeZlVAXfK1jsIAloIJp4LXVUbBqkIRc41a4MpDgona1G1h5SBEejdNUMK7GPTZogRciqeWi1Xc3yoziLPgmZHEBzLyK9-IOGuamWsD_vA3jNvXi9d4xfAKmqC95oe9mlk6PiY')"></div>
+<div class="flex-1">
+<p class="text-sm font-bold">Sarah Jenkins</p>
+<p class="text-[10px] font-black text-slate-400 uppercase tracking-tighter">18.2k points</p>
+</div>
+<span class="material-symbols-outlined text-amber-400 font-fill">workspace_premium</span>
+</div>
+<div class="flex items-center gap-3 p-2 rounded-xl hover:bg-slate-50 dark:hover:bg-white/5 transition-colors">
+<span class="font-black text-slate-400 w-4 text-center">2</span>
+<div class="size-10 rounded-full border-2 border-slate-300 bg-center bg-cover" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBOUDFiBAp6f90tCI25RDj-yCUcUH8V739bI6ilwSSUwEjbRaZH0BEMD0mMFWK-n6Hrf3Ku3chBaIvcUoS1QSQwarspdj0AVywN6AbLUFJyN2_1dQtdFBbYU7Q76irJgYEwvY_Uq1riciUX7h6qWbL7aPYzUgRWzWMzrTLnvVxxKP2LbQFcYiSgEj-zxW0ZLx9224GFTEP0TnKB84OuAPjRsKB-K5OpudnyIqkZqOfWGfpixzKT26dfXKpUiDY42JqO27Ii0dlk5U4')"></div>
+<div class="flex-1">
+<p class="text-sm font-bold">Marcus Chen</p>
+<p class="text-[10px] font-black text-slate-400 uppercase tracking-tighter">15.9k points</p>
+</div>
+</div>
+<div class="flex items-center gap-3 p-2 rounded-xl hover:bg-slate-50 dark:hover:bg-white/5 transition-colors">
+<span class="font-black text-orange-400 w-4 text-center">3</span>
+<div class="size-10 rounded-full border-2 border-orange-300 bg-center bg-cover" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC_TlJu-u1eCY_vpVcmlJUkdUNzTBMqrynvfCESpfaqoCpfxTzYkpwRsE_G551eFUDFR5qsP03uQckHJ7u6G57Smal1XkBPZX1FDwYCGvlNXFi9e1RzJGl7C5_XTQC3sPdmSvDVBOOOOfbIDvyuHjqC_0oTNJdBPaMZ4986zgP6d8xOQEnFFWEF0LSRKuQ0HYGodt5Dty0S5Vo-fiN3HhaxXDKDIPawMuUVkVwGpaT7HQTqMa_7ZEZAe4rgFqoxVqOaxp7EsJTngvI')"></div>
+<div class="flex-1">
+<p class="text-sm font-bold">Elena Rodriguez</p>
+<p class="text-[10px] font-black text-slate-400 uppercase tracking-tighter">14.1k points</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Achievements Grid -->
+<div class="lg:col-span-8 flex flex-col gap-6">
+<div class="flex items-center justify-between">
+<h3 class="text-2xl font-black tracking-tight">Achievement Badges</h3>
+<div class="flex gap-2 bg-white dark:bg-slate-900 p-1 rounded-full border border-slate-100 dark:border-white/5">
+<button class="px-4 py-1.5 bg-primary text-slate-900 text-[10px] font-black rounded-full shadow-lg shadow-primary/20">ALL</button>
+<button class="px-4 py-1.5 text-slate-500 text-[10px] font-black rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">LOCKED</button>
+</div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+<!-- Badge 1 - Gold/Yellow -->
+<div class="bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-100 dark:border-white/5 flex flex-col items-center text-center hover:shadow-xl hover:-translate-y-1 transition-all group cursor-pointer">
+<div class="size-16 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl text-amber-500 font-fill">eco</span>
+</div>
+<h5 class="text-sm font-black">Green Starter</h5>
+<p class="text-[10px] text-slate-400 mt-1 uppercase font-black tracking-wider">Recycled 10 items</p>
+</div>
+<!-- Badge 2 - Blue -->
+<div class="bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-100 dark:border-white/5 flex flex-col items-center text-center hover:shadow-xl hover:-translate-y-1 transition-all group cursor-pointer">
+<div class="size-16 rounded-full bg-sky-100 dark:bg-sky-900/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl text-sky-500 font-fill">water_drop</span>
+</div>
+<h5 class="text-sm font-black">Ocean Savior</h5>
+<p class="text-[10px] text-slate-400 mt-1 uppercase font-black tracking-wider">50 plastic bottles</p>
+</div>
+<!-- Badge 3 - Purple -->
+<div class="bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-100 dark:border-white/5 flex flex-col items-center text-center hover:shadow-xl hover:-translate-y-1 transition-all group cursor-pointer">
+<div class="size-16 rounded-full bg-violet-100 dark:bg-violet-900/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl text-violet-500 font-fill">auto_awesome</span>
+</div>
+<h5 class="text-sm font-black">Sorting Pro</h5>
+<p class="text-[10px] text-slate-400 mt-1 uppercase font-black tracking-wider">Zero contamination</p>
+</div>
+<!-- Badge 4 - Orange -->
+<div class="bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-100 dark:border-white/5 flex flex-col items-center text-center hover:shadow-xl hover:-translate-y-1 transition-all group cursor-pointer">
+<div class="size-16 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl text-orange-500 font-fill">forest</span>
+</div>
+<h5 class="text-sm font-black">Tree Planter</h5>
+<p class="text-[10px] text-slate-400 mt-1 uppercase font-black tracking-wider">1,000 pts milestone</p>
+</div>
+<!-- Badge 5 - Pink/Red -->
+<div class="bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-100 dark:border-white/5 flex flex-col items-center text-center hover:shadow-xl hover:-translate-y-1 transition-all group cursor-pointer">
+<div class="size-16 rounded-full bg-rose-100 dark:bg-rose-900/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl text-rose-500 font-fill">electric_bolt</span>
+</div>
+<h5 class="text-sm font-black">Weekly Streak</h5>
+<p class="text-[10px] text-slate-400 mt-1 uppercase font-black tracking-wider">7 days active</p>
+</div>
+<!-- Badge 6 - Locked -->
+<div class="bg-slate-100/50 dark:bg-white/5 rounded-2xl p-5 border border-dashed border-slate-300 dark:border-slate-800 flex flex-col items-center text-center grayscale opacity-50">
+<div class="size-16 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-4xl text-slate-400">lock</span>
+</div>
+<h5 class="text-sm font-black">Earth Master</h5>
+<p class="text-[10px] text-slate-400 mt-1 uppercase font-black tracking-wider">Level 20 unlock</p>
+</div>
+<!-- Badge 7 - Locked -->
+<div class="bg-slate-100/50 dark:bg-white/5 rounded-2xl p-5 border border-dashed border-slate-300 dark:border-slate-800 flex flex-col items-center text-center grayscale opacity-50">
+<div class="size-16 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-4xl text-slate-400">lock</span>
+</div>
+<h5 class="text-sm font-black">Aluminum King</h5>
+<p class="text-[10px] text-slate-400 mt-1 uppercase font-black tracking-wider">100 cans sorted</p>
+</div>
+<!-- Badge 8 - Locked -->
+<div class="bg-slate-100/50 dark:bg-white/5 rounded-2xl p-5 border border-dashed border-slate-300 dark:border-slate-800 flex flex-col items-center text-center grayscale opacity-50">
+<div class="size-16 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-4xl text-slate-400">lock</span>
+</div>
+<h5 class="text-sm font-black">Compost Expert</h5>
+<p class="text-[10px] text-slate-400 mt-1 uppercase font-black tracking-wider">20kg bio waste</p>
+</div>
+</div>
+<!-- Recent Activity Section -->
+<div class="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-slate-100 dark:border-white/5 mt-2">
+<div class="flex items-center justify-between mb-6">
+<h4 class="font-black text-lg tracking-tight">Recent Impact</h4>
+<button class="bg-slate-100 dark:bg-slate-800 p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-sm block">history</span>
+</button>
+</div>
+<div class="space-y-4">
+<div class="group flex items-center gap-4 p-4 rounded-xl bg-slate-50 dark:bg-white/5 hover:bg-emerald-50 dark:hover:bg-emerald-500/10 transition-all border border-transparent hover:border-emerald-100 dark:hover:border-emerald-500/20">
+<div class="size-12 flex items-center justify-center bg-emerald-500/20 text-emerald-600 rounded-xl group-hover:bg-emerald-500 group-hover:text-white transition-all">
+<span class="material-symbols-outlined font-fill">local_drink</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-black">Recycled 12 Plastic Bottles</p>
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-wide">Main St. Smart Bin • 2 hours ago</p>
+</div>
+<div class="text-right">
+<p class="text-sm font-black text-emerald-500">+60 pts</p>
+</div>
+</div>
+<div class="group flex items-center gap-4 p-4 rounded-xl bg-slate-50 dark:bg-white/5 hover:bg-blue-50 dark:hover:bg-blue-500/10 transition-all border border-transparent hover:border-blue-100 dark:hover:border-blue-500/20">
+<div class="size-12 flex items-center justify-center bg-blue-500/20 text-blue-600 rounded-xl group-hover:bg-blue-500 group-hover:text-white transition-all">
+<span class="material-symbols-outlined font-fill">newspaper</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-black">Paper &amp; Cardboard Batch</p>
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-wide">Home Pickup • Yesterday</p>
+</div>
+<div class="text-right">
+<p class="text-sm font-black text-blue-500">+120 pts</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

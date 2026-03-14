@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EcoSort AI | Sustainable Waste Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#13ec49",
+                "background-light": "#f6f8f6",
+                "background-dark": "#102215",
+              },
+              fontFamily: {
+                "display": ["Inter"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="flex flex-col min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-16">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-3xl font-bold">eco</span>
+<h2 class="text-slate-900 dark:text-slate-100 text-xl font-black tracking-tight">EcoSort AI</h2>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="flex items-center gap-3 pl-4 border-l border-primary/20">
+<div class="text-right hidden sm:block">
+<p class="text-sm font-bold text-slate-900 dark:text-slate-100">Eco Warrior</p>
+<p class="text-xs text-primary font-medium">Level 5 Explorer</p>
+</div>
+<div class="h-10 w-10 rounded-full bg-primary/20 border-2 border-primary/30 flex items-center justify-center overflow-hidden">
+<img class="h-full w-full object-cover" data-alt="User profile avatar showing a smiling conservationist" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqvvaEkFtnIipliM1ppGjZE5PyT-1Z2WMO0k6Ut1m8s0caKy9xnugJaBO2DUX6F82dC_Ykj0FkOOEHOdBmQsmMioljB1n79xSkzv-zs2j8h_42M5NbTjySFKglaoIMyPUWHN0Yrrh52b9_uc7hbmITArFYnOBxVD0T_DzoHNVhLdGlaFc2UfJ-yPoBzeM99pVx_yzLg15-iUyeiwZrunrVTpQapCRAox8oveYGt6Zj50wepn307fb6bavgzJSIzF6HZ2jylhSqeU8"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Sidebar Navigation -->
+<aside class="lg:col-span-3 space-y-2">
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-primary bg-primary/10 rounded-xl font-semibold" href="#">
+<span class="material-symbols-outlined">home</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-primary/5 hover:text-primary rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">history</span>
+<span>Scan History</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-primary/5 hover:text-primary rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">map</span>
+<span>Disposal Map</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-primary/5 hover:text-primary rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">emoji_events</span>
+<span>Leaderboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-primary/5 hover:text-primary rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Preferences</span>
+</a>
+</nav>
+<div class="mt-8 p-4 bg-primary/5 border border-primary/10 rounded-2xl">
+<h3 class="text-sm font-bold text-slate-900 dark:text-slate-100 mb-2">Impact Summary</h3>
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<span class="text-xs text-slate-500">Waste Sorted</span>
+<span class="text-xs font-bold text-primary">124 kg</span>
+</div>
+<div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[65%]"></div>
+</div>
+<p class="text-[10px] text-slate-500">26kg more to reach Level 6</p>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<div class="lg:col-span-9 space-y-8">
+<!-- Hero Section -->
+<div class="flex flex-col gap-2">
+<h1 class="text-4xl font-black text-slate-900 dark:text-slate-100 tracking-tight">Waste Classifier</h1>
+<p class="text-slate-500 dark:text-slate-400 max-w-xl text-lg leading-relaxed">
+                            Upload a photo of your waste, and our AI will identify the material and tell you exactly how to dispose of it properly.
+                        </p>
+</div>
+<!-- Upload Area -->
+<div class="relative group">
+<div class="flex flex-col items-center justify-center p-12 border-4 border-dashed border-primary/20 dark:border-primary/10 rounded-3xl bg-white dark:bg-slate-900/50 hover:border-primary/50 transition-all cursor-pointer">
+<div class="bg-primary/10 p-6 rounded-full mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-5xl text-primary">add_a_photo</span>
+</div>
+<h3 class="text-xl font-bold text-slate-900 dark:text-slate-100 mb-2">Drop your image here</h3>
+<p class="text-slate-500 dark:text-slate-400 mb-8 text-center max-w-xs">
+                                Supports JPG, PNG, and HEIC up to 10MB. Make sure the object is well-lit.
+                            </p>
+<button class="bg-primary hover:bg-primary/90 text-background-dark font-bold px-8 py-3 rounded-xl flex items-center gap-2 shadow-lg shadow-primary/20 transition-all">
+<span class="material-symbols-outlined">upload_file</span>
+                                Select from Gallery
+                            </button>
+</div>
+</div>
+<!-- Example Results Display (Mockup) -->
+<section class="space-y-6">
+<div class="flex items-center justify-between">
+<h2 class="text-2xl font-black text-slate-900 dark:text-slate-100">Classification Result</h2>
+<span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">verified</span>
+                                AI Confirmed
+                            </span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Result Image -->
+<div class="aspect-video rounded-3xl bg-slate-200 dark:bg-slate-800 overflow-hidden relative group">
+<img class="w-full h-full object-cover" data-alt="Photograph of a used plastic beverage bottle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa-j80MZE6YPKTnbUfEqmA3tsL2EhBRTQJ6TmFb-o_Y9eV54IqdF4GDr5GLSTX48_6vgFYmCz1lQ29VK3e1iNBcHpPgZbFGXO-POQmq-NQBeHBw6Umsk_8QT492DlbaCY6EKZW8CQLwukaR90Uf2h2B1yGkYoUOLwBiasJFH4dvd-R1ovkc8Zoh-PE-EYFyCLTXiqC3ETrQDXKblXqVME4agFsM2Ue5dFPyhpwugp5N66srRx4NWxaq53ju5m8O9uAeXAAfQCkpnw"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="text-white flex items-center gap-2 font-bold">
+<span class="material-symbols-outlined">zoom_in</span>
+                                        View Original
+                                    </button>
+</div>
+</div>
+<!-- Analysis Card -->
+<div class="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-primary/10 shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between mb-4">
+<div>
+<p class="text-xs uppercase tracking-widest font-black text-primary mb-1">Detected Material</p>
+<h3 class="text-3xl font-black text-slate-900 dark:text-slate-100">PET Plastic</h3>
+</div>
+<div class="text-right">
+<p class="text-xs text-slate-500 mb-1">Confidence</p>
+<p class="text-xl font-bold text-primary">98.4%</p>
+</div>
+</div>
+<div class="space-y-4 pt-4 border-t border-slate-100 dark:border-slate-800">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary">recycling</span>
+<div>
+<p class="font-bold text-slate-900 dark:text-slate-100">Disposal Action</p>
+<p class="text-sm text-slate-500">Place in your <span class="text-primary font-medium">Yellow Recycling Bin</span>. Ensure the bottle is empty and crushed.</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary">local_shipping</span>
+<div>
+<p class="font-bold text-slate-900 dark:text-slate-100">Nearest Collection Point</p>
+<p class="text-sm text-slate-500">Greenway Recycling Center (0.8 miles)</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8 flex gap-3">
+<button class="flex-1 bg-primary text-background-dark font-bold py-3 rounded-xl hover:opacity-90 transition-opacity">
+                                        Confirm &amp; Save
+                                    </button>
+<button class="flex-none p-3 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-400 hover:text-red-500 hover:border-red-500 transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Nearby Facilities Section -->
+<section class="space-y-4">
+<div class="flex items-center justify-between">
+<h2 class="text-2xl font-black text-slate-900 dark:text-slate-100">Nearby Drop-off Points</h2>
+<button class="text-primary text-sm font-bold flex items-center gap-1 hover:underline">
+                                View Full Map <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="h-64 rounded-3xl bg-slate-100 dark:bg-slate-800 relative overflow-hidden group">
+<div class="absolute inset-0 grayscale opacity-50 dark:opacity-20 group-hover:grayscale-0 transition-all">
+<img class="w-full h-full object-cover" data-alt="Stylized city map with recycling point markers" data-location="San Francisco" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQrneoUXiW8Fo1vKnZWN-w1r_GTlykxpmzYkQnTv1Zu729LvVBs3MCCQ6iZJ5GE3GsiihSTweg-ihVSeiG5h-t0-5OlOYDqdkwA4VTGOQBf5RlITzLNrMDTQG9Y2tL7-BNbz-f6aPTtXSL_5DRrRjuZwZ28q1jpWBYd1YFqvdwZU87v0FQaU4MXtwDpf9SvBBs2EZ6e5PaI21Zm0lu4iO5UT5xMk70qpSbL4F5i-Kzky4KAVe1CuZRP8yWU7aMdMuTm-MFXFYZJfA"/>
+</div>
+<div class="absolute top-1/2 left-1/3 -translate-y-1/2">
+<div class="relative">
+<div class="absolute -top-10 -left-1/2 bg-white dark:bg-slate-900 px-3 py-1 rounded-lg shadow-xl text-xs font-bold whitespace-nowrap">
+                                        EcoDrop Station
+                                    </div>
+<span class="material-symbols-outlined text-4xl text-primary animate-bounce">location_on</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="mt-auto border-t border-primary/10 py-8 bg-white dark:bg-slate-950">
+<div class="max-w-7xl mx-auto px-4 text-center">
+<div class="flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="flex items-center gap-2 text-primary/60">
+<span class="material-symbols-outlined">eco</span>
+<p class="text-sm font-medium">EcoSort AI © 2024</p>
+</div>
+<div class="flex gap-6 text-sm text-slate-500">
+<a class="hover:text-primary" href="#">Privacy Policy</a>
+<a class="hover:text-primary" href="#">Recycling Guide</a>
+<a class="hover:text-primary" href="#">API Access</a>
+</div>
+<div class="flex gap-4">
+<button class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-primary/20 hover:text-primary transition-all">
+<span class="material-symbols-outlined text-lg">public</span>
+</button>
+<button class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-primary/20 hover:text-primary transition-all">
+<span class="material-symbols-outlined text-lg">share</span>
+</button>
+</div>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

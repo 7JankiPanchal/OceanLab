@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EcoSort - Smart Waste Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec49",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102215",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between border-b border-primary/10 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md px-6 py-4 sticky top-0 z-50 md:px-20 lg:px-40">
+<div class="flex items-center gap-3">
+<div class="text-primary">
+<span class="material-symbols-outlined text-3xl">recycling</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-xl font-bold tracking-tight">EcoSort</h2>
+</div>
+<div class="flex flex-1 justify-end items-center gap-6">
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-slate-700 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="#how-it-works">How it Works</a>
+<a class="text-slate-700 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="#mission">Our Mission</a>
+<a class="text-slate-700 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="#contact">Contact</a>
+</nav>
+<div class="flex gap-2">
+<button class="flex items-center justify-center rounded-lg h-10 bg-primary/10 text-slate-900 dark:text-slate-100 hover:bg-primary/20 transition-all px-3">
+<span class="material-symbols-outlined">eco</span>
+</button>
+<button class="flex items-center justify-center rounded-lg h-10 bg-primary text-slate-900 font-bold px-4 hover:shadow-lg hover:shadow-primary/30 transition-all">
+<span class="text-sm">Sign In</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-1">
+<!-- Hero Section -->
+<div class="px-6 py-8 md:px-20 lg:px-40">
+<div class="@container">
+<div class="relative flex min-h-[520px] flex-col gap-6 bg-cover bg-center bg-no-repeat rounded-2xl items-center justify-center p-6 overflow-hidden shadow-2xl" data-alt="Abstract aerial view of lush green forest and clean environment" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('https://lh3.googleusercontent.com/aida-public/AB6AXuAbvsHBAU4Oh_6j1VnrdVLWaqaCVPSgITPKLUfMi8Pdpd-FDR0syqAeqZEn9iIaXRC65byBBvpueOOKGEm9Yyb0tYIedXaBbnLJx_LRF28UNrhkUtpfrJcOCnOP_MXh_NrzJ1Fb_L4FSDzpHRqJvUBszGFT18tgBLpVEbfUEi720SrUjS7AfZ5Aqk-z3BPhatjXqt4qk_w6dKiA7Og5x_xfp1BHE2uROCIVsvKhq7m_GfJo6nkbLxqa-_qJwVqBstGvhbbvlEyv_Lw');">
+<div class="flex flex-col gap-4 text-center max-w-3xl">
+<span class="bg-primary/20 text-primary px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest self-center backdrop-blur-sm">AI-Powered Recycling</span>
+<h1 class="text-white text-4xl font-black leading-tight tracking-tight md:text-6xl">
+                                    Smart Waste Management for a Greener Future
+                                </h1>
+<p class="text-slate-200 text-base md:text-lg font-normal leading-relaxed">
+                                    Revolutionize your recycling habits with our industry-leading AI classification. Snap, sort, and save the planet in seconds.
+                                </p>
+</div>
+<button class="flex min-w-[180px] cursor-pointer items-center justify-center rounded-xl h-14 px-8 bg-primary text-slate-950 text-base font-bold shadow-xl hover:scale-105 transition-transform active:scale-95">
+<span class="truncate">Classify Waste</span>
+</button>
+</div>
+</div>
+</div>
+<!-- How It Works Section -->
+<section class="px-6 py-16 md:px-20 lg:px-40 bg-white dark:bg-slate-900/50" id="how-it-works">
+<div class="flex flex-col gap-4 mb-12">
+<h2 class="text-primary font-bold text-sm tracking-widest uppercase">Process</h2>
+<h1 class="text-slate-900 dark:text-slate-100 text-3xl md:text-4xl font-black tracking-tight max-w-[720px]">
+                            Effortless Recycling in Seconds
+                        </h1>
+<p class="text-slate-600 dark:text-slate-400 text-lg max-w-[720px]">Three simple steps to manage your waste more effectively and help build a sustainable world.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Step 1 -->
+<div class="flex flex-col gap-6 rounded-2xl border border-primary/10 bg-background-light dark:bg-background-dark p-8 hover:border-primary/50 transition-colors group">
+<div class="size-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-slate-950 transition-all">
+<span class="material-symbols-outlined text-3xl">photo_camera</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-slate-900 dark:text-slate-100 text-xl font-bold">1. Snap a Photo</h3>
+<p class="text-slate-600 dark:text-slate-400 leading-normal">Point your camera at any waste item. Our app works instantly without complex setups.</p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col gap-6 rounded-2xl border border-primary/10 bg-background-light dark:bg-background-dark p-8 hover:border-primary/50 transition-colors group">
+<div class="size-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-slate-950 transition-all">
+<span class="material-symbols-outlined text-3xl">memory</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-slate-900 dark:text-slate-100 text-xl font-bold">2. AI Classification</h3>
+<p class="text-slate-600 dark:text-slate-400 leading-normal">Our neural network identifies materials—plastic, paper, glass, or organic—with 99% accuracy.</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col gap-6 rounded-2xl border border-primary/10 bg-background-light dark:bg-background-dark p-8 hover:border-primary/50 transition-colors group">
+<div class="size-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-slate-950 transition-all">
+<span class="material-symbols-outlined text-3xl">delete_sweep</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-slate-900 dark:text-slate-100 text-xl font-bold">3. Proper Disposal</h3>
+<p class="text-slate-600 dark:text-slate-400 leading-normal">Receive precise instructions on which bin to use or find the nearest specialized recycling center.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Our Mission Section -->
+<section class="px-6 py-20 md:px-20 lg:px-40" id="mission">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="relative">
+<div class="absolute -inset-4 bg-primary/10 rounded-2xl blur-2xl"></div>
+<img alt="Waste management center" class="relative rounded-2xl object-cover h-[400px] w-full shadow-xl" data-alt="Hands holding a young plant in rich soil representing growth" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkZ6QtrxN3ljgJ1EEgAVPQcXL-AvsVvX9r86R5UXALeKPjFEq_qUUgS9WIclsvTJMCdzjlTKrXlWhb_PvgIezloAKzzf_jWF4rxjV-jCu81trJk9McdJsxj4I2p3hmQ_VHsPhckduBQIKB8RwX8w8v9sytq2Pc9poIpCppdMmWEHnZtxnNacPKFRuT4CKfA-vw2WDjGP4fcs5DDlITNfIiIHFVwHjubo3C20uVnfsrtaldw6fujJ657I4BYzFU-UeutCv9eJB3T9Y"/>
+</div>
+<div class="flex flex-col gap-6">
+<h2 class="text-primary font-bold text-sm tracking-widest uppercase">Our Mission</h2>
+<h2 class="text-slate-900 dark:text-slate-100 text-4xl font-black leading-tight">Eliminating Waste Through Innovation</h2>
+<p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
+                                At EcoSort, we believe that technology can solve the world's most pressing environmental challenges. Our mission is to bridge the gap between human intent and environmental impact.
+                            </p>
+<ul class="flex flex-col gap-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">check_circle</span>
+<p class="text-slate-700 dark:text-slate-300 font-medium">Reduce landfill waste by 40% in participating communities.</p>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">check_circle</span>
+<p class="text-slate-700 dark:text-slate-300 font-medium">Educate the next generation on sustainable living habits.</p>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">check_circle</span>
+<p class="text-slate-700 dark:text-slate-300 font-medium">Provide real-time data for cities to optimize collection routes.</p>
+</li>
+</ul>
+<button class="mt-4 flex w-fit items-center justify-center rounded-xl h-12 px-6 border-2 border-primary text-primary font-bold hover:bg-primary hover:text-slate-950 transition-all">
+                                Learn More About Our Goals
+                            </button>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="px-6 py-20 md:px-20 lg:px-40">
+<div class="bg-primary rounded-3xl p-8 md:p-16 flex flex-col items-center text-center gap-8 shadow-2xl shadow-primary/20">
+<h2 class="text-slate-950 text-3xl md:text-5xl font-black max-w-2xl">Ready to change the way you recycle?</h2>
+<p class="text-slate-800 text-lg font-medium max-w-xl">Join over 50,000 eco-warriors using EcoSort to keep our oceans clean and our cities green.</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-slate-950 text-white rounded-xl px-10 py-4 font-bold hover:scale-105 transition-transform flex items-center gap-2">
+<span class="material-symbols-outlined">ios</span>
+                                App Store
+                            </button>
+<button class="bg-white text-slate-950 rounded-xl px-10 py-4 font-bold hover:scale-105 transition-transform flex items-center gap-2">
+<span class="material-symbols-outlined">play_apps</span>
+                                Play Store
+                            </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-50 dark:bg-background-dark border-t border-primary/5 px-6 py-12 md:px-20 lg:px-40">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-2xl">recycling</span>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold">EcoSort</h2>
+</div>
+<p class="text-slate-500 text-sm">Empowering communities to manage waste smarter with the power of artificial intelligence.</p>
+</div>
+<div>
+<h4 class="text-slate-900 dark:text-slate-100 font-bold mb-4">Product</h4>
+<ul class="flex flex-col gap-2 text-sm text-slate-500">
+<li><a class="hover:text-primary" href="#">Classification AI</a></li>
+<li><a class="hover:text-primary" href="#">Mobile App</a></li>
+<li><a class="hover:text-primary" href="#">Enterprise Solutions</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-slate-900 dark:text-slate-100 font-bold mb-4">Company</h4>
+<ul class="flex flex-col gap-2 text-sm text-slate-500">
+<li><a class="hover:text-primary" href="#">About Us</a></li>
+<li><a class="hover:text-primary" href="#">Sustainability Report</a></li>
+<li><a class="hover:text-primary" href="#">Careers</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-slate-900 dark:text-slate-100 font-bold mb-4">Support</h4>
+<ul class="flex flex-col gap-2 text-sm text-slate-500">
+<li><a class="hover:text-primary" href="#">Help Center</a></li>
+<li><a class="hover:text-primary" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary" href="#">Terms of Service</a></li>
+</ul>
+</div>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-slate-200 dark:border-slate-800 gap-4">
+<p class="text-slate-400 text-xs">© 2024 EcoSort Inc. All rights reserved.</p>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-slate-400 hover:text-primary cursor-pointer">public</span>
+<span class="material-symbols-outlined text-slate-400 hover:text-primary cursor-pointer">share</span>
+<span class="material-symbols-outlined text-slate-400 hover:text-primary cursor-pointer">mail</span>
+</div>
+</div>
+</footer>
+</div>
+</div>
+</body></html>
