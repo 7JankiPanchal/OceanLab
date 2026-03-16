@@ -27,6 +27,7 @@
         }
     </script>
 </head>
+
 <body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
 <div class="flex flex-col min-h-screen">
 <!-- Top Navigation Bar -->
@@ -106,6 +107,12 @@
 <!-- Upload Area -->
 <div class="relative group">
 <div class="flex flex-col items-center justify-center p-12 border-4 border-dashed border-primary/20 dark:border-primary/10 rounded-3xl bg-white dark:bg-slate-900/50 hover:border-primary/50 transition-all cursor-pointer">
+<input 
+    type="file" 
+    id="imageInput"
+    accept="image/*"
+    class="hidden"
+/>
 <div class="bg-primary/10 p-6 rounded-full mb-6 group-hover:scale-110 transition-transform">
 <span class="material-symbols-outlined text-5xl text-primary">add_a_photo</span>
 </div>
@@ -113,7 +120,9 @@
 <p class="text-slate-500 dark:text-slate-400 mb-8 text-center max-w-xs">
                                 Supports JPG, PNG, and HEIC up to 10MB. Make sure the object is well-lit.
                             </p>
-<button class="bg-primary hover:bg-primary/90 text-background-dark font-bold px-8 py-3 rounded-xl flex items-center gap-2 shadow-lg shadow-primary/20 transition-all">
+<button 
+onclick="document.getElementById('imageInput').click()"
+class="bg-primary hover:bg-primary/90 text-background-dark font-bold px-8 py-3 rounded-xl flex items-center gap-2 shadow-lg shadow-primary/20 transition-all">
 <span class="material-symbols-outlined">upload_file</span>
                                 Select from Gallery
                             </button>
@@ -131,7 +140,7 @@
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <!-- Result Image -->
 <div class="aspect-video rounded-3xl bg-slate-200 dark:bg-slate-800 overflow-hidden relative group">
-<img class="w-full h-full object-cover" data-alt="Photograph of a used plastic beverage bottle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa-j80MZE6YPKTnbUfEqmA3tsL2EhBRTQJ6TmFb-o_Y9eV54IqdF4GDr5GLSTX48_6vgFYmCz1lQ29VK3e1iNBcHpPgZbFGXO-POQmq-NQBeHBw6Umsk_8QT492DlbaCY6EKZW8CQLwukaR90Uf2h2B1yGkYoUOLwBiasJFH4dvd-R1ovkc8Zoh-PE-EYFyCLTXiqC3ETrQDXKblXqVME4agFsM2Ue5dFPyhpwugp5N66srRx4NWxaq53ju5m8O9uAeXAAfQCkpnw"/>
+<img id="resultImage" class="w-full h-full object-cover" src="" />
 <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
 <button class="text-white flex items-center gap-2 font-bold">
 <span class="material-symbols-outlined">zoom_in</span>
@@ -141,16 +150,23 @@
 </div>
 <!-- Analysis Card -->
 <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-primary/10 shadow-sm flex flex-col justify-between">
-<div>
 <div class="flex items-start justify-between mb-4">
+
 <div>
-<p class="text-xs uppercase tracking-widest font-black text-primary mb-1">Detected Material</p>
-<h3 class="text-3xl font-black text-slate-900 dark:text-slate-100">PET Plastic</h3>
+<p class="text-xs uppercase tracking-widest font-black text-primary mb-1">
+Detected Material
+</p>
+
+<h3 id="materialResult" class="text-3xl font-black text-slate-900 dark:text-slate-100">
+Waiting for image...
+</h3>
 </div>
+
 <div class="text-right">
 <p class="text-xs text-slate-500 mb-1">Confidence</p>
-<p class="text-xl font-bold text-primary">98.4%</p>
+<p id="confidenceResult" class="text-xl font-bold text-primary">--</p>
 </div>
+
 </div>
 <div class="space-y-4 pt-4 border-t border-slate-100 dark:border-slate-800">
 <div class="flex items-start gap-3">
@@ -230,4 +246,5 @@
 </div>
 </footer>
 </div>
+<script src="js/classifier.js"></script>
 </body></html>
