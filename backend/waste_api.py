@@ -2,11 +2,12 @@ from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from PIL import Image
 import io
-import random
+import numpy as np
+import tensorflow as tf
 
 app = FastAPI()
 
-# allow frontend requests
+# allow frontend
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -15,27 +16,29 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# simple dummy classes
-classes = ["plastic", "metal", "paper", "biodegradable"]
+# Load trained model
+model = tf.keras.models.load_model("model/waste_model.h5")
 
+classes = ["plastic", "biodegradable", "recyclable"]
 
 @app.get("/")
 def root():
     return {"message": "Waste classifier API running"}
 
-
 @app.post("/classify")
 async def classify(file: UploadFile = File(...)):
-
     contents = await file.read()
 
-    image = Image.open(io.BytesIO(contents))
+    image = Image.open(io.BytesIO(contents)).resize((224, 224))
+    img_array = np.array(image) / 255.0
+    img_array = np.expand_dims(img_array, axis=0)
 
-    # dummy prediction (replace with ML model later)
-    prediction = random.choice(classes)
-    confidence = random.uniform(0.7, 0.98)
+    prediction = model.predict(img_array)
+
+    label = classes[np.argmax(prediction)]
+    confidence = float(np.max(prediction))
 
     return {
-        "prediction": prediction,
-        "confidence": confidence
+        "prediction": label,
+        "confidence": round(confidence * 100, 2)
     }

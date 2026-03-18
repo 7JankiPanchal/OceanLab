@@ -105,28 +105,52 @@
                         </p>
 </div>
 <!-- Upload Area -->
+<!-- Upload Area -->
 <div class="relative group">
-<div class="flex flex-col items-center justify-center p-12 border-4 border-dashed border-primary/20 dark:border-primary/10 rounded-3xl bg-white dark:bg-slate-900/50 hover:border-primary/50 transition-all cursor-pointer">
-<input 
-    type="file" 
-    id="imageInput"
-    accept="image/*"
-    class="hidden"
-/>
-<div class="bg-primary/10 p-6 rounded-full mb-6 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-5xl text-primary">add_a_photo</span>
-</div>
-<h3 class="text-xl font-bold text-slate-900 dark:text-slate-100 mb-2">Drop your image here</h3>
-<p class="text-slate-500 dark:text-slate-400 mb-8 text-center max-w-xs">
-                                Supports JPG, PNG, and HEIC up to 10MB. Make sure the object is well-lit.
-                            </p>
-<button 
-onclick="document.getElementById('imageInput').click()"
-class="bg-primary hover:bg-primary/90 text-background-dark font-bold px-8 py-3 rounded-xl flex items-center gap-2 shadow-lg shadow-primary/20 transition-all">
-<span class="material-symbols-outlined">upload_file</span>
-                                Select from Gallery
-                            </button>
-</div>
+
+    <div class="flex flex-col items-center justify-center p-12 h-[320px] border-4 border-dashed border-primary/20 dark:border-primary/10 rounded-3xl bg-white dark:bg-slate-900/50 hover:border-primary/50 transition-all duration-300 cursor-pointer relative overflow-hidden">
+
+        <!-- FILE INPUT -->
+        <input 
+            type="file" 
+            id="imageInput"
+            accept="image/*"
+            class="hidden"
+        />
+
+        <!-- IMAGE PREVIEW -->
+        <img 
+            id="previewImage"
+            class="absolute inset-0 w-full h-full object-cover hidden"
+        />
+
+        <!-- CONTENT -->
+        <div id="uploadContent" class="flex flex-col items-center justify-center z-10 text-center">
+
+            <div class="bg-primary/10 p-6 rounded-full mb-6 group-hover:scale-110 transition-transform">
+                <span class="material-symbols-outlined text-5xl text-primary">add_a_photo</span>
+            </div>
+
+            <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100 mb-2">
+                Drop your image here
+            </h3>
+
+            <p class="text-slate-500 dark:text-slate-400 mb-8 max-w-xs">
+                Supports JPG, PNG, and HEIC up to 10MB.
+            </p>
+
+            <button 
+                onclick="document.getElementById('imageInput').click()"
+                class="bg-primary hover:bg-primary/90 text-background-dark font-bold px-8 py-3 rounded-xl flex items-center gap-2 shadow-lg shadow-primary/20 transition-all">
+                
+                <span class="material-symbols-outlined">upload_file</span>
+                Select from Gallery
+            </button>
+
+        </div>
+
+    </div>
+
 </div>
 <!-- Example Results Display (Mockup) -->
 <section class="space-y-6">

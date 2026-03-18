@@ -7,9 +7,25 @@ document.addEventListener("DOMContentLoaded", () => {
         const file = input.files[0];
         if (!file) return;
 
-        const preview = document.getElementById("resultImage");
-        preview.src = URL.createObjectURL(file);
+        // ✅ Upload box preview (FIXED ID)
+        const uploadPreview = document.getElementById("previewImage");
+        const uploadContent = document.getElementById("uploadContent");
 
+        uploadPreview.src = URL.createObjectURL(file);
+        uploadPreview.classList.remove("hidden");
+
+        // Hide upload text
+        if (uploadContent) {
+            uploadContent.style.display = "none";
+        }
+
+        // ✅ Result section preview
+        const resultPreview = document.getElementById("resultImage");
+        if (resultPreview) {
+            resultPreview.src = URL.createObjectURL(file);
+        }
+
+        // ✅ Loading state
         document.getElementById("materialResult").innerText = "Analyzing...";
         document.getElementById("confidenceResult").innerText = "...";
 
@@ -29,11 +45,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const data = await response.json();
 
-            document.getElementById("materialResult").innerText =
-                data.prediction;
+            const resultEl = document.getElementById("materialResult");
 
+            // ✅ Capitalize result
+            resultEl.innerText =
+                data.prediction.charAt(0).toUpperCase() + data.prediction.slice(1);
+
+            // ✅ Confidence
             document.getElementById("confidenceResult").innerText =
-                (data.confidence * 100).toFixed(2) + "%";
+                data.confidence.toFixed(2) + "%";
+
+            // 🎨 Color logic
+            if (data.prediction === "biodegradable") {
+                resultEl.style.color = "green";
+            } else if (data.prediction === "recyclable") {
+                resultEl.style.color = "blue";
+            } else {
+                resultEl.style.color = "orange";
+            }
 
         } catch (error) {
 
