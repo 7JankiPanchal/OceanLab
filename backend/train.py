@@ -59,7 +59,7 @@ model.compile(
 # Train
 model.fit(
     train_data,
-    epochs=20,
+    epochs=30,
     validation_data=val_data
 )
 
