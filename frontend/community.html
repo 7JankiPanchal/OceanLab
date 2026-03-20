@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Custom Color -->
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: "#13ec49"
+      }
+    }
+  }
+}
+</script>
+
+<title>Leaderboard</title>
+</head>
+
+<body class="bg-gray-100 p-6">
+
+<h1 class="text-2xl font-black mb-4">🏆 Community Leaderboard</h1>
+
+<!-- Controls -->
+<div class="flex justify-between items-center mb-4 gap-2">
+    <input id="searchUser" placeholder="Search user..."
+        class="w-full p-2 rounded-lg border text-sm focus:ring-2 focus:ring-primary outline-none" />
+
+    <button onclick="addRandomUser()"
+        class="bg-primary text-black px-3 py-2 rounded-lg text-sm font-bold hover:scale-105 transition">
+        + Add User
+    </button>
+</div>
+
+<!-- Leaderboard -->
+<div id="leaderboard" class="space-y-3"></div>
+
+<script>
+// ===============================
+// 🧠 INIT DEFAULT USERS (ONLY ONCE)
+// ===============================
+if (!localStorage.getItem("users")) {
+    localStorage.setItem("users", JSON.stringify([
+        { name: "Alex", points: 12450 },
+        { name: "Sara", points: 18200 },
+        { name: "John", points: 15900 }
+    ]));
+}
+
+// ===============================
+// 👤 CURRENT USER
+// ===============================
+function getCurrentUser() {
+    let points = parseInt(localStorage.getItem("points")) || 0;
+
+    return {
+        name: "You",
+        points: points
+    };
+}
+
+// ===============================
+// 🌍 GET USERS (NO DUPLICATE YOU)
+// ===============================
+function getUsers() {
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    // Remove old "You"
+    users = users.filter(u => u.name !== "You");
+
+    // Add fresh "You"
+    users.push(getCurrentUser());
+
+    return users;
+}
+
+// ===============================
+// 🏆 RANK ICON
+// ===============================
+function getRankIcon(rank) {
+    if (rank === 1) return "🥇";
+    if (rank === 2) return "🥈";
+    if (rank === 3) return "🥉";
+    return "#" + rank;
+}
+
+// ===============================
+// 🎯 LOAD LEADERBOARD
+// ===============================
+function loadLeaderboard(filter = "") {
+    let users = getUsers();
+
+    const board = document.getElementById("leaderboard");
+    board.innerHTML = "";
+
+    // Filter
+    users = users.filter(u =>
+        u.name.toLowerCase().includes(filter.toLowerCase())
+    );
+
+    // Sort
+    users.sort((a, b) => b.points - a.points);
+
+    users.forEach((u, i) => {
+
+        const div = document.createElement("div");
+        const isYou = u.name === "You";
+
+        div.className = `
+        flex justify-between items-center p-4 rounded-xl shadow-md transition
+        ${i === 0 ? "bg-yellow-200 border border-yellow-400" :
+          i === 1 ? "bg-gray-200 border border-gray-400" :
+          i === 2 ? "bg-orange-200 border border-orange-400" :
+          isYou ? "bg-green-100 border-2 border-green-400" :
+          "bg-gradient-to-r from-white to-green-50 border"}
+        hover:scale-[1.02]
+        `;
+
+        div.innerHTML = `
+        <div class="flex items-center gap-3">
+            <span class="text-lg font-black">${getRankIcon(i + 1)}</span>
+            
+            <div>
+                <p class="font-bold ${isYou ? "text-green-700" : "text-gray-800"}">
+                    ${u.name} ${isYou ? "(You)" : ""}
+                </p>
+                <p class="text-xs text-gray-500">Eco Warrior</p>
+            </div>
+        </div>
+
+        <span class="font-black text-green-600">
+            ${u.points.toLocaleString()} pts
+        </span>
+        `;
+
+        board.appendChild(div);
+    });
+
+    // Empty state
+    if (users.length === 0) {
+        board.innerHTML = `
+        <div class="text-center text-gray-400 py-10">
+            <span class="text-5xl">📭</span>
+            <p class="mt-2 text-sm">No users found</p>
+        </div>`;
+    }
+}
+
+// ===============================
+// 🔍 SEARCH (SAFE LOAD)
+// ===============================
+document.addEventListener("DOMContentLoaded", () => {
+
+    loadLeaderboard();
+
+    document.getElementById("searchUser")
+        .addEventListener("input", (e) => {
+            loadLeaderboard(e.target.value);
+        });
+});
+
+// ===============================
+// ➕ ADD RANDOM USER
+// ===============================
+function addRandomUser() {
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    const names = ["Riya", "Aman", "Priya", "Rahul", "Neha", "Karan"];
+
+    const randomUser = {
+        name: names[Math.floor(Math.random() * names.length)],
+        points: Math.floor(Math.random() * 20000)
+    };
+
+    users.push(randomUser);
+
+    localStorage.setItem("users", JSON.stringify(users));
+
+    loadLeaderboard();
+}
+</script>
+
+</body>
+</html>

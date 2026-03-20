@@ -40,8 +40,8 @@
 <div class="flex flex-1 justify-end gap-4 items-center">
 <nav class="hidden md:flex gap-6 mr-6">
 <a class="text-sm font-bold text-primary" href="#">Dashboard</a>
-<a class="text-sm font-bold text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">Activities</a>
-<a class="text-sm font-bold text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">Community</a>
+<a class="text-sm font-bold text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="activities.html">Activities</a>
+<a class="text-sm font-bold text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="community.html">Community</a>
 </nav>
 <div class="flex gap-2">
 <button class="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-primary/20 hover:text-primary transition-colors">
@@ -141,72 +141,91 @@
 <button class="px-4 py-1.5 text-slate-500 text-[10px] font-black rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">LOCKED</button>
 </div>
 </div>
+
 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-<!-- Badge 1 - Gold/Yellow -->
-<div class="bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-100 dark:border-white/5 flex flex-col items-center text-center hover:shadow-xl hover:-translate-y-1 transition-all group cursor-pointer">
-<div class="size-16 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-4xl text-amber-500 font-fill">eco</span>
+
+<!-- 1 -->
+<div id="badge-1" onclick="openBadge(1)"
+class="bg-white dark:bg-slate-900 rounded-2xl p-5 border flex flex-col items-center text-center hover:shadow-xl cursor-pointer">
+<div class="size-16 rounded-full bg-amber-100 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-4xl text-amber-500">eco</span>
 </div>
 <h5 class="text-sm font-black">Green Starter</h5>
-<p class="text-[10px] text-slate-400 mt-1 uppercase font-black tracking-wider">Recycled 10 items</p>
+<p class="text-[10px] text-slate-400 mt-1 uppercase">Recycled 10 items</p>
 </div>
-<!-- Badge 2 - Blue -->
-<div class="bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-100 dark:border-white/5 flex flex-col items-center text-center hover:shadow-xl hover:-translate-y-1 transition-all group cursor-pointer">
-<div class="size-16 rounded-full bg-sky-100 dark:bg-sky-900/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-4xl text-sky-500 font-fill">water_drop</span>
+
+<!-- 2 -->
+<div id="badge-2" onclick="openBadge(2)"
+class="bg-white dark:bg-slate-900 rounded-2xl p-5 border flex flex-col items-center text-center hover:shadow-xl cursor-pointer">
+<div class="size-16 rounded-full bg-sky-100 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-4xl text-sky-500">water_drop</span>
 </div>
 <h5 class="text-sm font-black">Ocean Savior</h5>
-<p class="text-[10px] text-slate-400 mt-1 uppercase font-black tracking-wider">50 plastic bottles</p>
+<p class="text-[10px] text-slate-400 mt-1 uppercase">50 plastic bottles</p>
 </div>
-<!-- Badge 3 - Purple -->
-<div class="bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-100 dark:border-white/5 flex flex-col items-center text-center hover:shadow-xl hover:-translate-y-1 transition-all group cursor-pointer">
-<div class="size-16 rounded-full bg-violet-100 dark:bg-violet-900/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-4xl text-violet-500 font-fill">auto_awesome</span>
+
+<!-- 3 -->
+<div id="badge-3" onclick="openBadge(3)"
+class="bg-white dark:bg-slate-900 rounded-2xl p-5 border flex flex-col items-center text-center hover:shadow-xl cursor-pointer">
+<div class="size-16 rounded-full bg-violet-100 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-4xl text-violet-500">auto_awesome</span>
 </div>
 <h5 class="text-sm font-black">Sorting Pro</h5>
-<p class="text-[10px] text-slate-400 mt-1 uppercase font-black tracking-wider">Zero contamination</p>
+<p class="text-[10px] text-slate-400 mt-1 uppercase">Zero contamination</p>
 </div>
-<!-- Badge 4 - Orange -->
-<div class="bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-100 dark:border-white/5 flex flex-col items-center text-center hover:shadow-xl hover:-translate-y-1 transition-all group cursor-pointer">
-<div class="size-16 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-4xl text-orange-500 font-fill">forest</span>
+
+<!-- 4 -->
+<div id="badge-4" onclick="openBadge(4)"
+class="bg-white dark:bg-slate-900 rounded-2xl p-5 border flex flex-col items-center text-center hover:shadow-xl cursor-pointer">
+<div class="size-16 rounded-full bg-orange-100 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-4xl text-orange-500">forest</span>
 </div>
 <h5 class="text-sm font-black">Tree Planter</h5>
-<p class="text-[10px] text-slate-400 mt-1 uppercase font-black tracking-wider">1,000 pts milestone</p>
+<p class="text-[10px] text-slate-400 mt-1 uppercase">1000 pts milestone</p>
 </div>
-<!-- Badge 5 - Pink/Red -->
-<div class="bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-100 dark:border-white/5 flex flex-col items-center text-center hover:shadow-xl hover:-translate-y-1 transition-all group cursor-pointer">
-<div class="size-16 rounded-full bg-rose-100 dark:bg-rose-900/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-4xl text-rose-500 font-fill">electric_bolt</span>
+
+<!-- 5 -->
+<div id="badge-5" onclick="openBadge(5)"
+class="bg-white dark:bg-slate-900 rounded-2xl p-5 border flex flex-col items-center text-center hover:shadow-xl cursor-pointer">
+<div class="size-16 rounded-full bg-rose-100 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-4xl text-rose-500">electric_bolt</span>
 </div>
 <h5 class="text-sm font-black">Weekly Streak</h5>
-<p class="text-[10px] text-slate-400 mt-1 uppercase font-black tracking-wider">7 days active</p>
+<p class="text-[10px] text-slate-400 mt-1 uppercase">7 days active</p>
 </div>
-<!-- Badge 6 - Locked -->
-<div class="bg-slate-100/50 dark:bg-white/5 rounded-2xl p-5 border border-dashed border-slate-300 dark:border-slate-800 flex flex-col items-center text-center grayscale opacity-50">
-<div class="size-16 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center mb-4">
-<span class="material-symbols-outlined text-4xl text-slate-400">lock</span>
+
+<!-- 6 -->
+<div id="badge-6" onclick="openBadge(6)"
+class="bg-white dark:bg-slate-900 rounded-2xl p-5 border flex flex-col items-center text-center hover:shadow-xl cursor-pointer">
+<div class="size-16 rounded-full bg-yellow-100 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-4xl text-yellow-500">emoji_events</span>
 </div>
 <h5 class="text-sm font-black">Earth Master</h5>
-<p class="text-[10px] text-slate-400 mt-1 uppercase font-black tracking-wider">Level 20 unlock</p>
+<p class="text-[10px] text-slate-400 mt-1 uppercase">Level 20 unlock</p>
 </div>
-<!-- Badge 7 - Locked -->
-<div class="bg-slate-100/50 dark:bg-white/5 rounded-2xl p-5 border border-dashed border-slate-300 dark:border-slate-800 flex flex-col items-center text-center grayscale opacity-50">
-<div class="size-16 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center mb-4">
-<span class="material-symbols-outlined text-4xl text-slate-400">lock</span>
+
+<!-- 7 -->
+<div id="badge-7" onclick="openBadge(7)"
+class="bg-white dark:bg-slate-900 rounded-2xl p-5 border flex flex-col items-center text-center hover:shadow-xl cursor-pointer">
+<div class="size-16 rounded-full bg-gray-100 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-4xl text-gray-500">local_drink</span>
 </div>
 <h5 class="text-sm font-black">Aluminum King</h5>
-<p class="text-[10px] text-slate-400 mt-1 uppercase font-black tracking-wider">100 cans sorted</p>
+<p class="text-[10px] text-slate-400 mt-1 uppercase">100 cans sorted</p>
 </div>
-<!-- Badge 8 - Locked -->
-<div class="bg-slate-100/50 dark:bg-white/5 rounded-2xl p-5 border border-dashed border-slate-300 dark:border-slate-800 flex flex-col items-center text-center grayscale opacity-50">
-<div class="size-16 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center mb-4">
-<span class="material-symbols-outlined text-4xl text-slate-400">lock</span>
+
+<!-- 8 -->
+<div id="badge-8" onclick="openBadge(8)"
+class="bg-white dark:bg-slate-900 rounded-2xl p-5 border flex flex-col items-center text-center hover:shadow-xl cursor-pointer">
+<div class="size-16 rounded-full bg-green-100 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-4xl text-green-600">compost</span>
 </div>
 <h5 class="text-sm font-black">Compost Expert</h5>
-<p class="text-[10px] text-slate-400 mt-1 uppercase font-black tracking-wider">20kg bio waste</p>
+<p class="text-[10px] text-slate-400 mt-1 uppercase">20kg bio waste</p>
 </div>
+
 </div>
+
 <!-- Recent Activity Section -->
 <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-slate-100 dark:border-white/5 mt-2">
 <div class="flex items-center justify-between mb-6">
@@ -247,4 +266,36 @@
 </main>
 </div>
 </div>
+
+<div id="badgeModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+
+  <div id="modalCard"
+       class="bg-white dark:bg-slate-900 rounded-2xl p-6 w-[320px] text-center shadow-xl transform scale-90 opacity-0 transition-all duration-300 relative">
+
+    <!-- Close -->
+    <button onclick="closeModal()"
+      class="absolute top-2 right-3 text-xl text-slate-400 hover:text-red-500">✖</button>
+
+    <!-- Icon -->
+    <div id="modalIcon" class="text-5xl mb-3"></div>
+
+    <!-- Title -->
+    <h3 id="modalTitle" class="text-xl font-black"></h3>
+
+    <!-- Description -->
+    <p id="modalDesc" class="text-sm text-slate-500 mt-2"></p>
+
+    <!-- Progress -->
+    <div class="mt-4">
+        <div class="w-full bg-slate-200 rounded-full h-2">
+            <div id="progressBar" class="bg-primary h-2 rounded-full" style="width: 0%"></div>
+        </div>
+        <p id="progressText" class="text-xs mt-2 text-slate-400"></p>
+    </div>
+
+  </div>
+
+</div>
+
+<script src="js/EcoReward.js"></script>
 </body></html>
