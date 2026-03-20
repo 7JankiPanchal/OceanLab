@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Disposal Map</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="p-6 bg-green-50">
+
+<h1 class="text-3xl font-bold text-green-600 mb-4">🗺️ Disposal Map</h1>
+
+<div id="map" class="w-full h-[500px] rounded-xl"></div>
+
+<script>
+function initMap() {
+    const location = { lat: 21.1702, lng: 72.8311 }; // Surat
+
+    const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 12,
+        center: location
+    });
+
+    const locations = [
+        { lat: 21.1702, lng: 72.8311, name: "EcoDrop Center" },
+        { lat: 21.1800, lng: 72.8200, name: "Recycling Hub" }
+    ];
+
+    locations.forEach(loc => {
+        new google.maps.Marker({
+            position: loc,
+            map: map,
+            title: loc.name
+        });
+    });
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+
+</body>
+</html>

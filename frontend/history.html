@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>EcoSort History</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-r from-green-50 to-emerald-100 min-h-screen p-6">
+
+<!-- HEADER -->
+<div class="flex justify-between items-center mb-6">
+    <h1 class="text-4xl font-extrabold text-green-600">🌿 Scan History</h1>
+
+    <div class="flex gap-3">
+        <input id="searchInput" placeholder="Search (plastic, metal...)" 
+        class="px-4 py-2 rounded-xl border"/>
+
+        <button onclick="clearHistory()" 
+        class="bg-red-500 text-white px-4 py-2 rounded-xl">
+        Clear All
+        </button>
+    </div>
+</div>
+
+<!-- HISTORY GRID -->
+<div id="historyContainer" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+<script>
+
+let historyData = [];
+
+function loadHistory() {
+    historyData = JSON.parse(localStorage.getItem("history")) || [];
+    displayHistory(historyData);
+}
+
+function displayHistory(data) {
+    const container = document.getElementById("historyContainer");
+
+    if (data.length === 0) {
+        container.innerHTML = `
+        <div class="col-span-full text-center mt-20">
+            <h2 class="text-2xl text-gray-500">No scans yet 😔</h2>
+        </div>`;
+        return;
+    }
+
+    container.innerHTML = "";
+
+    data.slice().reverse().forEach((item, index) => {
+
+        const color =
+            item.type.toLowerCase().includes("bio") ? "green" :
+            item.type.toLowerCase().includes("recycl") ? "blue" :
+            "orange";
+
+        const card = document.createElement("div");
+
+        card.className = `bg-white rounded-2xl shadow-lg overflow-hidden hover:scale-105 transition`;
+
+        card.innerHTML = `
+            <img src="${item.image}" class="w-full h-40 object-cover"/>
+
+            <div class="p-4">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-xl font-bold text-${color}-600">${item.type}</h3>
+                    <button onclick="deleteItem(${index})" 
+                    class="text-red-500 hover:text-red-700">
+                        ✖
+                    </button>
+                </div>
+
+                <p class="text-sm text-gray-500">${item.time}</p>
+
+                <div class="mt-2 text-sm">
+                    Confidence: <span class="font-bold">${item.confidence}</span>
+                </div>
+            </div>
+        `;
+
+        container.appendChild(card);
+    });
+}
+
+// 🔍 SEARCH FILTER
+document.getElementById("searchInput").addEventListener("input", function () {
+    const value = this.value.toLowerCase();
+
+    const filtered = historyData.filter(item =>
+        item.type.toLowerCase().includes(value)
+    );
+
+    displayHistory(filtered);
+});
+
+// ❌ DELETE SINGLE ITEM
+function deleteItem(index) {
+    if (!confirm("Delete this item?")) return;
+
+    let history = JSON.parse(localStorage.getItem("history")) || [];
+
+    history.splice(history.length - 1 - index, 1);
+
+    localStorage.setItem("history", JSON.stringify(history));
+    loadHistory();
+}
+
+// 🗑️ CLEAR ALL
+function clearHistory() {
+    if (!confirm("Clear all history?")) return;
+
+    localStorage.removeItem("history");
+    loadHistory();
+}
+
+window.onload = loadHistory;
+
+</script>
+
+</body>
+</html>

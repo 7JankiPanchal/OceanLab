@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Preferences</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="p-6">
+
+<h1 class="text-3xl font-bold mb-6">⚙️ Preferences</h1>
+
+<button onclick="toggleDark()" 
+class="bg-green-500 text-white px-4 py-2 rounded-xl">
+Toggle Dark Mode
+</button>
+
+<script>
+function toggleDark() {
+    document.body.classList.toggle("bg-black");
+    document.body.classList.toggle("text-white");
+
+    localStorage.setItem("darkMode", document.body.classList.contains("bg-black"));
+}
+
+window.onload = () => {
+    if (localStorage.getItem("darkMode") === "true") {
+        document.body.classList.add("bg-black", "text-white");
+    }
+};
+</script>
+
+</body>
+</html>
