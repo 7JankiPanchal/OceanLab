@@ -6,7 +6,6 @@ import io
 import numpy as np
 import tensorflow as tf
 
-# ✅ Create ONE app only
 app = FastAPI()
 
 # ✅ Enable CORS (for frontend)
