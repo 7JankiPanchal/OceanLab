@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact - EcoSort</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary": "#13ec49",
+        "background-light": "#f6f8f6",
+        "background-dark": "#102215",
+      },
+      fontFamily: { display: ["Inter"] },
+      borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+    },
+  },
+}
+</script>
+<style>
+body { font-family: 'Inter', sans-serif; }
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+</style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+
+<!-- Navbar -->
+<header class="flex items-center justify-between border-b border-primary/10 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md px-6 py-4 sticky top-0 z-50 md:px-20 lg:px-40">
+  <div class="flex items-center gap-3">
+    <div class="text-primary"><span class="material-symbols-outlined text-3xl">recycling</span></div>
+    <h2 class="text-slate-900 dark:text-slate-100 text-xl font-bold tracking-tight">EcoSort</h2>
+  </div>
+  <nav class="hidden md:flex items-center gap-6">
+    <a href="index.html#how-it-works" class="text-slate-700 dark:text-slate-300 hover:text-primary transition-colors">How it Works</a>
+    <a href="index.html#mission" class="text-slate-700 dark:text-slate-300 hover:text-primary transition-colors">Our Mission</a>
+    <a href="contact.html" class="text-slate-700 dark:text-slate-300 hover:text-primary transition-colors">Contact</a>
+  </nav>
+</header>
+
+<!-- Contact Section -->
+<main class="px-6 py-16 md:px-20 lg:px-40">
+<div class="max-w-4xl mx-auto flex flex-col gap-12">
+  <!-- Header -->
+  <div class="text-center">
+    <h2 class="text-primary font-bold text-sm tracking-widest uppercase">Get in Touch</h2>
+    <h1 class="text-slate-900 dark:text-slate-100 text-4xl font-black mt-2">We'd Love to Hear From You</h1>
+    <p class="text-slate-600 dark:text-slate-400 mt-2">Questions, suggestions, or partnerships? Fill out the form and we’ll get back to you promptly.</p>
+  </div>
+
+  <!-- Form -->
+  <form id="contactForm" class="flex flex-col gap-6 bg-white dark:bg-background-dark rounded-2xl p-8 shadow-lg">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <input type="text" name="name" placeholder="Your Name" required
+        class="rounded-lg border border-primary/20 px-4 py-3 focus:ring-2 focus:ring-primary focus:outline-none dark:bg-background-dark dark:border-primary/30 dark:text-slate-100"/>
+      <input type="email" name="email" placeholder="Your Email" required
+        class="rounded-lg border border-primary/20 px-4 py-3 focus:ring-2 focus:ring-primary focus:outline-none dark:bg-background-dark dark:border-primary/30 dark:text-slate-100"/>
+    </div>
+    <input type="text" name="subject" placeholder="Subject"
+      class="rounded-lg border border-primary/20 px-4 py-3 focus:ring-2 focus:ring-primary focus:outline-none dark:bg-background-dark dark:border-primary/30 dark:text-slate-100"/>
+    <textarea name="message" rows="5" placeholder="Your Message" required
+      class="rounded-lg border border-primary/20 px-4 py-3 focus:ring-2 focus:ring-primary focus:outline-none dark:bg-background-dark dark:border-primary/30 dark:text-slate-100"></textarea>
+    <button type="submit" class="bg-primary text-slate-950 font-bold rounded-xl py-3 hover:scale-105 transition-transform">Send Message</button>
+  </form>
+
+  <!-- Contact Info -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+    <div class="flex flex-col items-center gap-2 bg-primary/10 rounded-2xl p-4 hover:bg-primary/20 transition-colors">
+      <span class="material-symbols-outlined text-primary text-3xl">mail</span>
+      <p class="font-medium text-slate-900 dark:text-slate-100">contact@ecosort.com</p>
+    </div>
+    <div class="flex flex-col items-center gap-2 bg-primary/10 rounded-2xl p-4 hover:bg-primary/20 transition-colors">
+      <span class="material-symbols-outlined text-primary text-3xl">phone</span>
+      <p class="font-medium text-slate-900 dark:text-slate-100">+1 234 567 890</p>
+    </div>
+    <div class="flex flex-col items-center gap-2 bg-primary/10 rounded-2xl p-4 hover:bg-primary/20 transition-colors">
+      <span class="material-symbols-outlined text-primary text-3xl">location_on</span>
+      <p class="font-medium text-slate-900 dark:text-slate-100">123 Green Street, EcoCity</p>
+    </div>
+  </div>
+</div>
+</main>
+
+<script>
+const contactForm = document.getElementById('contactForm');
+contactForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  alert('Thank you! Your message has been sent.');
+  contactForm.reset();
+});
+</script>
+</body>
+</html>
