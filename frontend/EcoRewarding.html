@@ -30,29 +30,84 @@
 <div class="relative flex min-h-screen w-full flex-col">
 <div class="layout-container flex h-full grow flex-col">
 <!-- Top Navigation -->
-<header class="flex items-center justify-between border-b border-slate-200 dark:border-white/5 bg-white dark:bg-background-dark px-6 md:px-10 py-3 sticky top-0 z-50">
-<div class="flex items-center gap-4">
-<div class="text-primary flex items-center justify-center bg-primary/10 p-1.5 rounded-lg">
-<span class="material-symbols-outlined text-2xl">recycling</span>
-</div>
-<h2 class="text-slate-900 dark:text-slate-100 text-lg font-black leading-tight tracking-tight">EcoSort</h2>
-</div>
-<div class="flex flex-1 justify-end gap-4 items-center">
-<nav class="hidden md:flex gap-6 mr-6">
-<a class="text-sm font-bold text-primary" href="#">Dashboard</a>
-<a class="text-sm font-bold text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="activities.html">Activities</a>
-<a class="text-sm font-bold text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="community.html">Community</a>
-</nav>
-<div class="flex gap-2">
-<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-primary/20 hover:text-primary transition-colors">
-<span class="material-symbols-outlined">notifications</span>
-</button>
-<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-primary/20 hover:text-primary transition-colors">
-<span class="material-symbols-outlined">settings</span>
-</button>
-</div>
-<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-primary ring-4 ring-primary/10" data-alt="User profile avatar of a smiling man" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAehRoNOtKRSXgWsdEA_7e_SbxU7EPAIlWQlsBsH4TMNzLdWhA9ny1pIk3-9qg_m62KAYYzVIFX9xjBS5ch8iMZtm6JcT7e5PttteJHvCalwQfV3YRHyOsSo8mt9gcYguS7Kjm3fMUZBW6_PU2v3YCjxMvJNLyv39EHGNW4FrSw3_vymvBZ-5riVL_NbKXhZZsxucBKuI3-r1CfkC8qGpyazYlCN5FAtvJmfv5n8NaWz6wQN3nW92h-awJdPBrDBUOJizHEQ96wAo4");'></div>
-</div>
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+
+      <!-- Logo -->
+      <div class="flex items-center gap-2 text-primary">
+        <span class="material-symbols-outlined text-3xl font-bold">eco</span>
+        <h2 class="text-xl font-black tracking-tight">EcoSort AI</h2>
+      </div>
+
+      <!-- Right Section -->
+      <div class="flex items-center gap-4">
+
+        <!-- 🔔 Notification -->
+        <div class="relative">
+          <button id="notifBtn"
+            class="p-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 relative">
+            <span class="material-symbols-outlined">notifications</span>
+
+            <!-- Badge -->
+            <span id="notifBadge"
+              class="absolute -top-1 -right-1 bg-red-500 text-white text-xs px-1 rounded-full hidden">
+              0
+            </span>
+          </button>
+
+          <!-- Dropdown -->
+          <div id="notifDropdown"
+            class="hidden absolute right-0 mt-2 w-72 bg-white dark:bg-slate-900 shadow-xl rounded-xl p-4 z-50">
+            <h3 class="font-bold mb-2">Notifications</h3>
+            <div id="notifList" class="space-y-2 text-sm">No notifications</div>
+          </div>
+        </div>
+
+        <!-- 👤 Profile -->
+        <div class="relative flex items-center gap-3">
+
+          <!-- Text -->
+          <div class="text-right hidden sm:block">
+            <p class="text-sm font-bold">Eco Warrior</p>
+            <p class="text-xs text-primary">Level 5 Explorer</p>
+          </div>
+
+          <!-- Avatar -->
+          <button id="profileBtn"
+            class="h-10 w-10 rounded-full overflow-hidden border-2 border-primary/30">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqvvaEkFtnIipliM1ppGjZE5PyT-1Z2WMO0k6Ut1m8s0caKy9xnugJaBO2DUX6F82dC_Ykj0FkOOEHOdBmQsmMioljB1n79xSkzv-zs2j8h_42M5NbTjySFKglaoIMyPUWHN0Yrrh52b9_uc7hbmITArFYnOBxVD0T_DzoHNVhLdGlaFc2UfJ-yPoBzeM99pVx_yzLg15-iUyeiwZrunrVTpQapCRAox8oveYGt6Zj50wepn307fb6bavgzJSIzF6HZ2jylhSqeU8"/>
+          </button>
+
+          <!-- Dropdown -->
+          <div id="profileDropdown"
+            class="hidden absolute right-0 mt-12 w-56 bg-white dark:bg-slate-900 shadow-xl rounded-xl p-3 z-50">
+
+            <p class="font-bold mb-2">Eco Warrior</p>
+
+            <a href="history.html" class="block px-3 py-2 hover:bg-primary/10 rounded-lg">
+              📜 History
+            </a>
+
+            <a href="preferences.html" class="block px-3 py-2 hover:bg-primary/10 rounded-lg">
+              ⚙️ Settings
+            </a>
+
+            <hr class="my-2">
+
+            <button onclick="logout()"
+              class="w-full text-left px-3 py-2 hover:bg-red-100 text-red-500 rounded-lg">
+              🚪 Logout
+            </button>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
 </header>
 <main class="flex-1 max-w-[1200px] mx-auto w-full p-4 md:p-8">
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">

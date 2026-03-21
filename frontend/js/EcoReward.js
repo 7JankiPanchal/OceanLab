@@ -13,16 +13,16 @@ const achievements = [
 ];
 
 // ===============================
-// 🚀 INIT (IMPORTANT FIX)
+// 🚀 INIT
 // ===============================
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Initialize points if not present
-    if (!localStorage.getItem("points")) {
-        localStorage.setItem("points", 0);
-    }
+    // 🔥 FORCE UNLOCK ALL BADGES (FOR TESTING)
+    localStorage.setItem("points", 10000);
 
     renderBadges();
+    initNavbar();
+    loadNotifications();
 });
 
 // ===============================
@@ -35,26 +35,16 @@ function renderBadges() {
         const el = document.getElementById("badge-" + a.id);
         if (!el) return;
 
-        if (points < a.points) {
-            el.classList.add("opacity-40", "grayscale");
-        } else {
+        // ✅ ALL UNLOCKED LOOK
+        el.classList.remove("opacity-40", "grayscale");
 
-            // Unlock animation (NEW 🔥)
-            if (el.classList.contains("grayscale")) {
-                el.classList.remove("opacity-40", "grayscale");
-
-                el.classList.add("ring-4", "ring-primary");
-
-                setTimeout(() => {
-                    el.classList.remove("ring-4", "ring-primary");
-                }, 1000);
-            }
-        }
+        // Optional glow effect
+        el.classList.add("ring-2", "ring-primary/30");
     });
 }
 
 // ===============================
-// 🎯 ICON HELPER (FIXED)
+// 🎯 ICON HELPER
 // ===============================
 function getBadgeIcon(id) {
     const icons = {
@@ -62,7 +52,7 @@ function getBadgeIcon(id) {
         2: "water_drop",
         3: "auto_awesome",
         4: "forest",
-        5: "electric_bolt", // FIXED
+        5: "electric_bolt",
         6: "stars",
         7: "workspace_premium",
         8: "compost"
@@ -84,17 +74,10 @@ function openBadge(id) {
     document.getElementById("modalIcon").innerHTML =
         `<span class="material-symbols-outlined">${getBadgeIcon(id)}</span>`;
 
-    let progress = Math.min((points / badge.points) * 100, 100);
+    document.getElementById("modalDesc").innerText =
+        badge.desc + " 🎉 Unlocked!";
 
-    if (points >= badge.points) {
-        document.getElementById("modalDesc").innerText =
-            badge.desc + " 🎉 Unlocked!";
-    } else {
-        document.getElementById("modalDesc").innerText =
-            `🔒 Locked - Need ${badge.points} points`;
-    }
-
-    document.getElementById("progressBar").style.width = progress + "%";
+    document.getElementById("progressBar").style.width = "100%";
 
     document.getElementById("progressText").innerText =
         `${points} / ${badge.points} points`;
@@ -132,16 +115,14 @@ function updatePoints(amount = 50) {
     let points = parseInt(localStorage.getItem("points")) || 0;
 
     points += amount;
-
     localStorage.setItem("points", points);
 
     addActivity("Recycled waste", amount);
-
     renderBadges();
 }
 
 // ===============================
-// 📜 ACTIVITY SYSTEM (IMPROVED)
+// 📜 ACTIVITY SYSTEM
 // ===============================
 function addActivity(action, pts) {
     let activities = JSON.parse(localStorage.getItem("activities")) || [];
@@ -152,28 +133,72 @@ function addActivity(action, pts) {
         time: new Date().toLocaleString()
     });
 
-    // Keep only last 10 activities
     activities = activities.slice(0, 10);
-
     localStorage.setItem("activities", JSON.stringify(activities));
 }
 
 // ===============================
-// 👤 PROFILE
+// 🔔 NAVBAR (FIXED)
 // ===============================
-function openProfile() {
-    let points = parseInt(localStorage.getItem("points")) || 0;
-    let level = Math.floor(points / 200);
+function initNavbar() {
 
-    const p = document.getElementById("profilePoints");
-    const l = document.getElementById("profileLevel");
+    const notifBtn = document.getElementById("notifBtn");
+    const notifDropdown = document.getElementById("notifDropdown");
 
-    if (p) p.innerText = "Points: " + points;
-    if (l) l.innerText = "Level: " + level;
+    const profileBtn = document.getElementById("profileBtn");
+    const profileDropdown = document.getElementById("profileDropdown");
 
-    document.getElementById("profileModal").classList.remove("hidden");
+    if (!notifBtn || !profileBtn) return;
+
+    notifBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        notifDropdown.classList.toggle("hidden");
+        profileDropdown.classList.add("hidden");
+    });
+
+    profileBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        profileDropdown.classList.toggle("hidden");
+        notifDropdown.classList.add("hidden");
+    });
+
+    document.addEventListener("click", () => {
+        notifDropdown.classList.add("hidden");
+        profileDropdown.classList.add("hidden");
+    });
 }
 
-function closeProfile() {
-    document.getElementById("profileModal").classList.add("hidden");
+// ===============================
+// 🔔 NOTIFICATIONS
+// ===============================
+function loadNotifications() {
+    const notifList = document.getElementById("notifList");
+    const notifBadge = document.getElementById("notifBadge");
+
+    if (!notifList || !notifBadge) return;
+
+    let notifications = [
+        "You earned 50 points 🎉",
+        "New badge unlocked 🏆",
+        "Recycling streak updated 🔥"
+    ];
+
+    notifList.innerHTML = "";
+
+    notifications.forEach(n => {
+        const p = document.createElement("p");
+        p.textContent = n;
+        p.className = "p-2 rounded hover:bg-primary/10 cursor-pointer";
+        notifList.appendChild(p);
+    });
+
+    notifBadge.textContent = notifications.length;
+    notifBadge.classList.remove("hidden");
+}
+
+// ===============================
+// 🚪 LOGOUT
+// ===============================
+function logout() {
+    alert("Logging out...");
 }
