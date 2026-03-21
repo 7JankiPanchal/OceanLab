@@ -35,38 +35,82 @@
 <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
 <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
 <!-- Top Navigation Bar -->
-<header class="flex items-center justify-between border-b border-primary/10 bg-white dark:bg-background-dark/50 px-6 py-3 sticky top-0 z-50 backdrop-blur-md">
-<div class="flex items-center gap-4">
-<div class="flex items-center justify-center size-10 rounded-lg bg-primary text-background-dark">
-<span class="material-symbols-outlined">recycling</span>
-</div>
-<h2 class="text-xl font-bold tracking-tight">EcoSort</h2>
-</div>
-<nav class="hidden md:flex flex-1 justify-center gap-8">
-<a class="flex items-center gap-2 text-sm font-semibold text-primary border-b-2 border-primary pb-1" href="#">
-<span class="material-symbols-outlined text-[20px]">dashboard</span> Dashboard
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+
+      <!-- Logo -->
+      <div class="flex items-center gap-2 text-primary">
+        <span class="material-symbols-outlined text-3xl font-bold">eco</span>
+        <h2 class="text-xl font-black tracking-tight">EcoSort AI</h2>
+      </div>
+
+      <!-- Right Section -->
+      <div class="flex items-center gap-4">
+
+        <!-- 🔔 Notification -->
+        <div class="relative">
+          <button id="notifBtn"
+            class="p-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 relative">
+            <span class="material-symbols-outlined">notifications</span>
+
+            <!-- Badge -->
+            <span id="notifBadge"
+              class="absolute -top-1 -right-1 bg-red-500 text-white text-xs px-1 rounded-full hidden">
+              0
+            </span>
+          </button>
+
+          <!-- Dropdown -->
+          <div id="notifDropdown"
+            class="hidden absolute right-0 mt-2 w-72 bg-white dark:bg-slate-900 shadow-xl rounded-xl p-4 z-50">
+            <h3 class="font-bold mb-2">Notifications</h3>
+            <div id="notifList" class="space-y-2 text-sm">No notifications</div>
+          </div>
+        </div>
+
+        <!-- 👤 Profile -->
+        <div class="relative flex items-center gap-3">
+
+          <!-- Text -->
+          <div class="text-right hidden sm:block">
+            <p class="text-sm font-bold">Eco Warrior</p>
+            <p class="text-xs text-primary">Level 5 Explorer</p>
+          </div>
+
+          <!-- Avatar -->
+          <button id="profileBtn"
+            class="h-10 w-10 rounded-full overflow-hidden border-2 border-primary/30">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqvvaEkFtnIipliM1ppGjZE5PyT-1Z2WMO0k6Ut1m8s0caKy9xnugJaBO2DUX6F82dC_Ykj0FkOOEHOdBmQsmMioljB1n79xSkzv-zs2j8h_42M5NbTjySFKglaoIMyPUWHN0Yrrh52b9_uc7hbmITArFYnOBxVD0T_DzoHNVhLdGlaFc2UfJ-yPoBzeM99pVx_yzLg15-iUyeiwZrunrVTpQapCRAox8oveYGt6Zj50wepn307fb6bavgzJSIzF6HZ2jylhSqeU8"/>
+          </button>
+
+          <!-- Dropdown -->
+          <div id="profileDropdown"
+            class="hidden absolute right-0 mt-12 w-56 bg-white dark:bg-slate-900 shadow-xl rounded-xl p-3 z-50">
+
+            <p class="font-bold mb-2">Eco Warrior</p>
+
+            <a href="history.html" class="block px-3 py-2 hover:bg-primary/10 rounded-lg">
+              📜 History
             </a>
-<a class="flex items-center gap-2 text-sm font-medium hover:text-primary transition-colors" href="#">
-<span class="material-symbols-outlined text-[20px]">eco</span> Impact
+
+            <a href="preferences.html" class="block px-3 py-2 hover:bg-primary/10 rounded-lg">
+              ⚙️ Settings
             </a>
-<a class="flex items-center gap-2 text-sm font-medium hover:text-primary transition-colors" href="#">
-<span class="material-symbols-outlined text-[20px]">groups</span> Community
-            </a>
-<a class="flex items-center gap-2 text-sm font-medium hover:text-primary transition-colors" href="#">
-<span class="material-symbols-outlined text-[20px]">settings</span> Settings
-            </a>
-</nav>
-<div class="flex items-center gap-3">
-<button class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-primary/20 transition-colors">
-<span class="material-symbols-outlined">notifications</span>
-</button>
-<button class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-primary/20 transition-colors">
-<span class="material-symbols-outlined">account_circle</span>
-</button>
-<div class="h-10 w-10 rounded-full bg-primary/20 overflow-hidden border border-primary/30">
-<img alt="User Profile" data-alt="User profile avatar illustration" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD69ixNxro8c2mcnmjFriTk9snQP05jQ28GgwUs_37Eh116zVWLRpL4EQ3FRRYnFA8HjCZ-Ygq6rrwIWV8LdK2BpD1PsgBsJOviCMf-uAKJMmgA2pOLhgO1qFVpqwzivUB0g4GkJX25zjyDkSNqk9E0xU20EijWlYE3Gg82sFb00Vzp1JM9Tg7V0PZ2PcA4cgpsnqyqW-7nP9x2IF8pK8Vy65C-cQJEMVXefp6_GkdYmYh8rIrvRre3_nStEy__d3J9XozyaFc1gVA"/>
-</div>
-</div>
+
+            <hr class="my-2">
+
+            <button onclick="logout()"
+              class="w-full text-left px-3 py-2 hover:bg-red-100 text-red-500 rounded-lg">
+              🚪 Logout
+            </button>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
 </header>
 <main class="flex-1 max-w-7xl mx-auto w-full p-6 space-y-8">
 <!-- Header Section -->
@@ -76,73 +120,134 @@
 <p class="text-slate-500 dark:text-slate-400">Real-time overview of your environmental footprint and community contribution.</p>
 </div>
 <div class="flex gap-3">
-<button class="px-4 py-2 rounded-lg bg-white border border-slate-200 dark:bg-slate-800 dark:border-slate-700 font-semibold text-sm flex items-center gap-2">
-<span class="material-symbols-outlined text-[18px]">calendar_today</span> Last 30 Days
-                </button>
-<button class="px-4 py-2 rounded-lg bg-primary text-background-dark font-bold text-sm flex items-center gap-2 shadow-lg shadow-primary/20">
-<span class="material-symbols-outlined text-[18px]">download</span> Export Report
-                </button>
+<!-- Header Section Buttons -->
+   <button id="filterBtn"
+    class="px-4 py-2 rounded-lg bg-white border border-slate-200 dark:bg-slate-800 dark:border-slate-700 font-semibold text-sm flex items-center gap-2">
+    <span class="material-symbols-outlined text-[18px]">calendar_today</span>
+    Last 30 Days
+</button>
+
+<input id="datePicker" type="date"
+    style="position:absolute; opacity:0; pointer-events:none;">
+    <button id="exportBtn" class="px-4 py-2 rounded-lg bg-primary text-background-dark font-bold text-sm flex items-center gap-2 shadow-lg shadow-primary/20">
+        <span class="material-symbols-outlined text-[18px]">download</span> Export Report
+    </button>
 </div>
 </section>
 <!-- Stats Overview Cards -->
 <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
 <!-- Waste Recycled -->
-<div class="bg-white dark:bg-slate-900 rounded-xl p-6 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
-<div class="flex justify-between items-start mb-4">
-<div class="p-3 bg-primary/10 rounded-lg text-primary">
-<span class="material-symbols-outlined fill-icon">delete_sweep</span>
+<div id="wasteCard"
+     class="cursor-pointer hover:scale-105 transition bg-white dark:bg-slate-900 rounded-xl p-6 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md">
+    
+    <div class="flex justify-between items-start mb-4">
+        <div class="p-3 bg-primary/10 rounded-lg text-primary">
+            <span class="material-symbols-outlined fill-icon">delete_sweep</span>
+        </div>
+
+        <span id="wasteChange" class="px-2 py-1 rounded bg-green-100 text-green-700 text-xs font-bold flex items-center gap-1">
+            <span class="material-symbols-outlined text-[14px]">trending_up</span> +12.5%
+        </span>
+    </div>
+
+    <p class="text-sm font-medium text-slate-500 dark:text-slate-400">Waste Recycled</p>
+
+    <h3 class="text-3xl font-bold mt-1">
+        <span id="wasteValue">1240</span>
+        <span class="text-lg font-normal text-slate-400">kg</span>
+    </h3>
+
+    <div class="mt-4 h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+        <div id="wasteProgress" class="h-full bg-primary" style="width: 75%;"></div>
+    </div>
+
+    <p id="wasteNote" class="text-xs text-slate-400 mt-2">
+        75% of your annual goal reached
+    </p>
 </div>
-<span class="px-2 py-1 rounded bg-green-100 text-green-700 text-xs font-bold flex items-center gap-1">
-<span class="material-symbols-outlined text-[14px]">trending_up</span> +12.5%
-                    </span>
-</div>
-<p class="text-sm font-medium text-slate-500 dark:text-slate-400">Waste Recycled</p>
-<h3 class="text-3xl font-bold mt-1">1,240 <span class="text-lg font-normal text-slate-400">kg</span></h3>
-<div class="mt-4 h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
-<div class="h-full bg-primary w-[75%]"></div>
-</div>
-<p class="text-xs text-slate-400 mt-2">75% of your annual goal reached</p>
-</div>
+
+
 <!-- Carbon Saved -->
-<div class="bg-white dark:bg-slate-900 rounded-xl p-6 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
-<div class="flex justify-between items-start mb-4">
-<div class="p-3 bg-blue-500/10 rounded-lg text-blue-500">
-<span class="material-symbols-outlined fill-icon">co2</span>
+<div id="carbonCard"
+     class="cursor-pointer hover:scale-105 transition bg-white dark:bg-slate-900 rounded-xl p-6 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md">
+
+    <div class="flex justify-between items-start mb-4">
+        <div class="p-3 bg-blue-500/10 rounded-lg text-blue-500">
+            <span class="material-symbols-outlined fill-icon">co2</span>
+        </div>
+
+        <span id="carbonChange" class="px-2 py-1 rounded bg-green-100 text-green-700 text-xs font-bold flex items-center gap-1">
+            <span class="material-symbols-outlined text-[14px]">trending_up</span> +8.2%
+        </span>
+    </div>
+
+    <p class="text-sm font-medium text-slate-500 dark:text-slate-400">Carbon Saved</p>
+
+    <h3 class="text-3xl font-bold mt-1">
+        <span id="carbonValue">450</span>
+        <span class="text-lg font-normal text-slate-400">kg CO2e</span>
+    </h3>
+
+    <div class="mt-4 h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+        <div id="carbonProgress" class="h-full bg-blue-500" style="width: 70%;"></div>
+    </div>
+
+    <p id="carbonNote" class="text-xs text-slate-400 mt-2">
+        Equivalent to planting 12 trees
+    </p>
 </div>
-<span class="px-2 py-1 rounded bg-green-100 text-green-700 text-xs font-bold flex items-center gap-1">
-<span class="material-symbols-outlined text-[14px]">trending_up</span> +8.2%
-                    </span>
-</div>
-<p class="text-sm font-medium text-slate-500 dark:text-slate-400">Carbon Saved</p>
-<h3 class="text-3xl font-bold mt-1">450 <span class="text-lg font-normal text-slate-400">kg CO2e</span></h3>
-<div class="mt-4 flex gap-1">
-<div class="h-2 flex-1 bg-primary rounded-full"></div>
-<div class="h-2 flex-1 bg-primary rounded-full"></div>
-<div class="h-2 flex-1 bg-primary rounded-full"></div>
-<div class="h-2 flex-1 bg-slate-200 dark:bg-slate-800 rounded-full"></div>
-</div>
-<p class="text-xs text-slate-400 mt-2">Equivalent to planting 12 trees</p>
-</div>
+
+
 <!-- Community Impact -->
-<div class="bg-white dark:bg-slate-900 rounded-xl p-6 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
-<div class="flex justify-between items-start mb-4">
-<div class="p-3 bg-purple-500/10 rounded-lg text-purple-500">
-<span class="material-symbols-outlined fill-icon">volunteer_activism</span>
+<div id="communityCard"
+     class="cursor-pointer hover:scale-105 transition bg-white dark:bg-slate-900 rounded-xl p-6 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md">
+
+    <div class="flex justify-between items-start mb-4">
+        <div class="p-3 bg-purple-500/10 rounded-lg text-purple-500">
+            <span class="material-symbols-outlined fill-icon">volunteer_activism</span>
+        </div>
+
+        <span id="communityChange" class="px-2 py-1 rounded bg-green-100 text-green-700 text-xs font-bold flex items-center gap-1">
+            <span class="material-symbols-outlined text-[14px]">trending_up</span> +2.0%
+        </span>
+    </div>
+
+    <p class="text-sm font-medium text-slate-500 dark:text-slate-400">Community Impact</p>
+
+    <h3 class="text-3xl font-bold mt-1">
+        <span id="communityValue">12</span>
+        <span class="text-lg font-normal text-slate-400">Projects</span>
+    </h3>
+
+    <div class="mt-4 h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+        <div id="communityProgress" class="h-full bg-purple-500" style="width: 60%;"></div>
+    </div>
+
+    <div class="mt-4 flex -space-x-2">
+        <div class="w-8 h-8 rounded-full border-2 border-white dark:border-slate-900 overflow-hidden">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvhgbDwIQ8BwOYPaBy8HOpVo04ZmxmACj9SSSuv4WWr6w8jdeFsgKBzt-v_c6Qk7bPhe8bnQrZjG-IyIjzL3A2U9bfuITWxkCu9IDbheC1VPjLm5EQEYe9G4fFcZkZxKZ3bizefF7Rm-pAu1eU-Bjg1-mD4Dufzf_0loeIGtro2BGZuvaaIMNi3Cs7mqKj7J__LungomAI8ga7YJG17ApVydNOed4XSV_F20Yx7XJoTqKibYai41QmTzbuGonqauGc1dtihpd8_y0"/>
+        </div>
+
+        <div class="w-8 h-8 rounded-full border-2 border-white dark:border-slate-900 overflow-hidden">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsGWpMm9ghFDaWHfPIfQ4e1M31sgQgnEIWSVxIrLeGyTGMIg3TzpZ4YMuza4tw-ng1mSHoKFBKeAHHxfy_6ZZi3fE_0q4hoDyaNXbR7IEL8WYhGEj3xuQe4cUFG497Z_lJ6z4Xi4CslYRvnFRJ5mqatO404ef9RswOk5CzJ2TWOBi0gATipiH3X1ImEEOENguNUBDbIPhshFqwl9jR3s6agBh_O5u_xwbH08Azb_RAfb7IgDwugWVweVrRXuctv3mKdbpJINK5Vhk"/>
+        </div>
+
+        <div class="w-8 h-8 rounded-full border-2 border-white dark:border-slate-900 overflow-hidden">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBU5FoEiT3ssRmSVgywzzzJEHoE9cmlI6O5Eed-W04gjp5sjtD4jIbwuh7YCm4z3fWqw0IiLGCv4KbCwz2Gsp0ujQc26vnO8JfQX-8PQFblFX9A00zDoHpqAMF-bx0gkqU7O7EA7L87_CpjRYYsGEBm3bp1dogSHmc6JrBzjbNmspHwNbFtugQW4nkoCsNi--1CfRN4Krh83xnv1RgV_DXvrteOr-KQKKEDSMMlRLvowhaiTlQYsHeKz_0KJqbNqhTjqqKl02il-ss"/>
+        </div>
+
+        <div class="w-8 h-8 rounded-full border-2 border-white dark:border-slate-900 bg-purple-500/20 flex items-center justify-center text-[10px] font-bold">
+            +42
+        </div>
+    </div>
+
+    <p id="communityNote" class="text-xs text-slate-400 mt-2">
+        Active in 3 neighborhood groups
+    </p>
+
 </div>
-<span class="px-2 py-1 rounded bg-green-100 text-green-700 text-xs font-bold flex items-center gap-1">
-<span class="material-symbols-outlined text-[14px]">trending_up</span> +2.0%
-                    </span>
-</div>
-<p class="text-sm font-medium text-slate-500 dark:text-slate-400">Community Impact</p>
-<h3 class="text-3xl font-bold mt-1">12 <span class="text-lg font-normal text-slate-400">Projects</span></h3>
-<div class="mt-4 flex -space-x-2">
-<div class="w-8 h-8 rounded-full border-2 border-white dark:border-slate-900 bg-slate-200 overflow-hidden"><img alt="Member" data-alt="Community member avatar photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvhgbDwIQ8BwOYPaBy8HOpVo04ZmxmACj9SSSuv4WWr6w8jdeFsgKBzt-v_c6Qk7bPhe8bnQrZjG-IyIjzL3A2U9bfuITWxkCu9IDbheC1VPjLm5EQEYe9G4fFcZkZxKZ3bizefF7Rm-pAu1eU-Bjg1-mD4Dufzf_0loeIGtro2BGZuvaaIMNi3Cs7mqKj7J__LungomAI8ga7YJG17ApVydNOed4XSV_F20Yx7XJoTqKibYai41QmTzbuGonqauGc1dtihpd8_y0"/></div>
-<div class="w-8 h-8 rounded-full border-2 border-white dark:border-slate-900 bg-slate-200 overflow-hidden"><img alt="Member" data-alt="Community member avatar photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsGWpMm9ghFDaWHfPIfQ4e1M31sgQgnEIWSVxIrLeGyTGMIg3TzpZ4YMuza4tw-ng1mSHoKFBKeAHHxfy_6ZZi3fE_0q4hoDyaNXbR7IEL8WYhGEj3xuQe4cUFG497Z_lJ6z4Xi4CslYRvnFRJ5mqatO404ef9RswOk5CzJ2TWOBi0gATipiH3X1ImEEOENguNUBDbIPhshFqwl9jR3s6agBh_O5u_xwbH08Azb_RAfb7IgDwugWVweVrRXuctv3mKdbpJINK5Vhk"/></div>
-<div class="w-8 h-8 rounded-full border-2 border-white dark:border-slate-900 bg-slate-200 overflow-hidden"><img alt="Member" data-alt="Community member avatar photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBU5FoEiT3ssRmSVgywzzzJEHoE9cmlI6O5Eed-W04gjp5sjtD4jIbwuh7YCm4z3fWqw0IiLGCv4KbCwz2Gsp0ujQc26vnO8JfQX-8PQFblFX9A00zDoHpqAMF-bx0gkqU7O7EA7L87_CpjRYYsGEBm3bp1dogSHmc6JrBzjbNmspHwNbFtugQW4nkoCsNi--1CfRN4Krh83xnv1RgV_DXvrteOr-KQKKEDSMMlRLvowhaiTlQYsHeKz_0KJqbNqhTjqqKl02il-ss"/></div>
-<div class="w-8 h-8 rounded-full border-2 border-white dark:border-slate-900 bg-primary/20 flex items-center justify-center text-[10px] font-bold">+42</div>
-</div>
-<p class="text-xs text-slate-400 mt-2">Active in 3 neighborhood groups</p>
-</div>
+
 </section>
 <!-- Main Content Area -->
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -163,50 +268,9 @@
 </div>
 </div>
 <!-- Simplified Visual Chart Container -->
-<div class="h-64 flex items-end justify-between gap-4 px-2">
-<div class="relative w-full flex flex-col items-center gap-2">
-<div class="w-full bg-slate-100 dark:bg-slate-800 rounded-t-lg h-32 relative overflow-hidden">
-<div class="absolute bottom-0 w-full bg-primary h-20"></div>
-</div>
-<span class="text-xs text-slate-400">Mon</span>
-</div>
-<div class="relative w-full flex flex-col items-center gap-2">
-<div class="w-full bg-slate-100 dark:bg-slate-800 rounded-t-lg h-40 relative overflow-hidden">
-<div class="absolute bottom-0 w-full bg-primary h-28"></div>
-</div>
-<span class="text-xs text-slate-400">Tue</span>
-</div>
-<div class="relative w-full flex flex-col items-center gap-2">
-<div class="w-full bg-slate-100 dark:bg-slate-800 rounded-t-lg h-48 relative overflow-hidden">
-<div class="absolute bottom-0 w-full bg-primary h-40"></div>
-</div>
-<span class="text-xs text-slate-400">Wed</span>
-</div>
-<div class="relative w-full flex flex-col items-center gap-2">
-<div class="w-full bg-slate-100 dark:bg-slate-800 rounded-t-lg h-36 relative overflow-hidden">
-<div class="absolute bottom-0 w-full bg-primary h-24"></div>
-</div>
-<span class="text-xs text-slate-400">Thu</span>
-</div>
-<div class="relative w-full flex flex-col items-center gap-2">
-<div class="w-full bg-slate-100 dark:bg-slate-800 rounded-t-lg h-56 relative overflow-hidden">
-<div class="absolute bottom-0 w-full bg-primary h-44"></div>
-</div>
-<span class="text-xs text-slate-400">Fri</span>
-</div>
-<div class="relative w-full flex flex-col items-center gap-2">
-<div class="w-full bg-slate-100 dark:bg-slate-800 rounded-t-lg h-44 relative overflow-hidden">
-<div class="absolute bottom-0 w-full bg-primary h-32"></div>
-</div>
-<span class="text-xs text-slate-400">Sat</span>
-</div>
-<div class="relative w-full flex flex-col items-center gap-2">
-<div class="w-full bg-slate-100 dark:bg-slate-800 rounded-t-lg h-32 relative overflow-hidden">
-<div class="absolute bottom-0 w-full bg-primary h-16"></div>
-</div>
-<span class="text-xs text-slate-400">Sun</span>
-</div>
-</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<div class="h-72">
+  <canvas id="recyclingChart"></canvas>
 </div>
 <!-- Recent Activities -->
 <div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 overflow-hidden">
@@ -260,53 +324,70 @@
 <!-- Side Cards -->
 <div class="space-y-6">
 <!-- Sustainability Score Card -->
-<div class="bg-background-dark dark:bg-black text-white rounded-xl p-6 shadow-xl relative overflow-hidden group">
-<div class="absolute -right-4 -top-4 size-32 bg-primary/20 blur-3xl rounded-full group-hover:bg-primary/40 transition-colors"></div>
-<div class="relative z-10">
-<h2 class="text-lg font-bold mb-6">Eco-Score</h2>
-<div class="flex items-center justify-center mb-6">
-<div class="size-36 rounded-full border-[10px] border-primary/20 flex items-center justify-center relative">
-<div class="absolute inset-0 rounded-full border-[10px] border-primary border-t-transparent border-r-transparent -rotate-45"></div>
-<div class="text-center">
-<span class="text-4xl font-black">84</span>
-<p class="text-[10px] uppercase tracking-widest text-slate-400">Excellent</p>
-</div>
-</div>
-</div>
-<p class="text-sm text-center text-slate-300">You are in the top 5% of recyclers in San Francisco!</p>
-<button class="w-full mt-6 py-2 rounded-lg bg-primary text-background-dark font-bold text-sm">How to improve?</button>
-</div>
-</div>
-<!-- Leaderboard Preview -->
-<div class="bg-white dark:bg-slate-900 rounded-xl p-6 border border-slate-100 dark:border-slate-800">
-<h2 class="text-lg font-bold mb-4">Leaderboard</h2>
-<div class="space-y-4">
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-3">
-<span class="text-sm font-bold text-slate-400">1</span>
-<div class="size-8 rounded-full bg-slate-200 overflow-hidden"><img alt="Rank 1" data-alt="Leaderboard top user avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBa3FHoO0HfOf3jwgl23TffC1cnqA0HeHXkWGbH8-ALaGwdtlV_ajgbokPPF63rpKymd7aRupAXiQNVmGpP7PYeiJxH3lHQtWdHNqMv5fNJYwIs9zoqNOqWeT0OQUwI_IMcWHvorONIbSTcTYHBT3-mQwDIoEB66D4RN6lYYphh6T_oK25y4APPKRHnI44_VwlOA7oxRpdwP6xiIB2-Q0digbO905lnZ3b6C56iRn_3LNiaaP6tLneAdzChz4nNgIR5n92Wlj30ww"/></div>
-<span class="text-sm font-semibold">Sarah J.</span>
-</div>
-<span class="text-sm font-bold">2.4k kg</span>
-</div>
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-3">
-<span class="text-sm font-bold text-slate-400">2</span>
-<div class="size-8 rounded-full bg-slate-200 overflow-hidden"><img alt="Rank 2" data-alt="Leaderboard second user avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3XVYdaOebMoa7WORdA1p-8TQdrIcYdurNtJHcI14GpddHlJZpBgnhE5sa5fHlHRR3f7-dC7ec6e5FjCTEYrRu6XaUlG_SdwX273_ZWDqLYjRwMAvEtTyS7bfSFTF88Yjml5ntpDGl0EaP7I9wdiMOim6XWqP35AVKK9Iml7QUqnuJ0oQF59OUu6YB6pUTw8SaK2pm09RXiEBd3JwXFj08Rci9dEv4gX53B4-QAHO90B9snBWIB-NHdbPJsuXQCGbSMmikTrZztcY"/></div>
-<span class="text-sm font-semibold">GreenTeam</span>
-</div>
-<span class="text-sm font-bold">2.1k kg</span>
-</div>
-<div class="flex items-center justify-between bg-primary/10 -mx-2 px-2 py-1.5 rounded-lg border border-primary/20">
-<div class="flex items-center gap-3">
-<span class="text-sm font-bold text-primary">12</span>
-<div class="size-8 rounded-full bg-primary/20 overflow-hidden"><img alt="You" data-alt="Your profile avatar on leaderboard" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEIyU5P_h81rjQLG1lNVGp6zGASvEsFDs7BRx-iFJFhoVlIpsxjIRX2D1pRF5RhAnwxwkTfsFxiLoDJ95EayqiB1-SVQnnjY8LLVd1PF-qVcx1iTqkvN-S1h8puAoFSKACHh5XArJlUdHHQMs-bi8MSfre77IhCGfKhTV144fh0LctB4q4lQQcWF7pvTMG3gvGqKyOJE_ri7ThgLjRFwZKvoqTYxpshGbP5uq4qUMiimChmP53myIht1Y6Ae__ZU1aElpugvXvJh4"/></div>
-<span class="text-sm font-bold">You</span>
-</div>
-<span class="text-sm font-bold">1.2k kg</span>
-</div>
-</div>
-<button class="w-full mt-6 text-sm font-semibold text-slate-500 dark:text-slate-400 hover:text-primary transition-colors">See full ranking</button>
+<div class="bg-background-dark dark:bg-black text-white rounded-xl p-6 shadow-xl relative overflow-hidden group hover:scale-105 transition duration-300">
+
+  <!-- Glow Effect -->
+  <div class="absolute -right-4 -top-4 size-32 bg-primary/20 blur-3xl rounded-full group-hover:bg-primary/40 transition"></div>
+
+  <div class="relative z-10">
+
+    <h2 class="text-lg font-bold mb-6">Eco-Score</h2>
+
+    <!-- ✅ Animated Circle -->
+    <div class="flex items-center justify-center mb-6">
+      <div class="relative">
+
+        <svg width="150" height="150" class="-rotate-90">
+          
+          <!-- Background circle -->
+          <circle
+            cx="75"
+            cy="75"
+            r="65"
+            stroke="#1f2937"
+            stroke-width="10"
+            fill="none"
+          />
+
+          <!-- Progress circle -->
+          <circle
+            id="ecoCircle"
+            cx="75"
+            cy="75"
+            r="65"
+            stroke="#13ec49"
+            stroke-width="10"
+            fill="none"
+            stroke-linecap="round"
+            stroke-dasharray="408"
+            stroke-dashoffset="408"
+            class="transition-all duration-1000"
+          />
+        </svg>
+
+        <!-- Score text -->
+        <div class="absolute inset-0 flex flex-col items-center justify-center">
+          <span id="ecoScoreText" class="text-4xl font-black">0</span>
+          <p id="ecoLabel" class="text-[10px] uppercase tracking-widest text-slate-400">
+            Loading...
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Dynamic message -->
+    <p id="ecoMessage" class="text-sm text-center text-slate-300">
+      Calculating your eco impact...
+    </p>
+
+    <!-- Button -->
+    <button id="improveBtn"
+      class="w-full mt-6 py-2 rounded-lg bg-primary text-background-dark font-bold text-sm hover:opacity-90 transition">
+      How to improve?
+    </button>
+
+  </div>
 </div>
 <!-- Goals Widget -->
 <div class="bg-white dark:bg-slate-900 rounded-xl p-6 border border-slate-100 dark:border-slate-800">
@@ -342,7 +423,7 @@
 <div class="size-8 rounded bg-primary flex items-center justify-center text-background-dark">
 <span class="material-symbols-outlined text-[18px]">recycling</span>
 </div>
-<span class="font-bold">EcoSort © 2024</span>
+<span class="font-bold">EcoSort © 2026</span>
 </div>
 <div class="flex gap-8 text-sm text-slate-500">
 <a class="hover:text-primary" href="#">Privacy Policy</a>
@@ -353,4 +434,26 @@
 </div>
 </footer>
 </div>
-</body></html>
+
+<!-- INFO MODAL -->
+<div id="infoModal"
+     class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
+
+  <div class="bg-white dark:bg-slate-900 rounded-xl p-6 w-[90%] max-w-md shadow-xl">
+    
+    <h2 id="modalTitle" class="text-xl font-bold mb-2"></h2>
+    
+    <p id="modalContent"
+       class="text-sm text-slate-500 dark:text-slate-400 mb-4"></p>
+
+    <button id="closeModal"
+      class="w-full py-2 bg-primary text-black rounded-lg font-semibold">
+      Close
+    </button>
+
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/Stats.js"></script>
+</body>
+</html>
