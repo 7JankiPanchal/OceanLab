@@ -119,6 +119,7 @@ function updatePoints(amount = 50) {
 
     addActivity("Recycled waste", amount);
     renderBadges();
+    renderActivities();
 }
 
 // ===============================
@@ -202,3 +203,201 @@ function loadNotifications() {
 function logout() {
     alert("Logging out...");
 }
+// ===============================
+// 🏷️ TAB SWITCHING: ALL vs LOCKED
+// ===============================
+const tabAll = document.getElementById("tabAll");
+const tabLocked = document.getElementById("tabLocked");
+
+tabAll.addEventListener("click", () => {
+    showBadges("all");
+    tabAll.classList.add("bg-primary", "text-slate-900");
+    tabLocked.classList.remove("bg-primary", "text-slate-900");
+});
+
+tabLocked.addEventListener("click", () => {
+    showBadges("locked");
+    tabLocked.classList.add("bg-primary", "text-slate-900");
+    tabAll.classList.remove("bg-primary", "text-slate-900");
+});
+
+// ===============================
+// 🔹 SHOW BADGES FUNCTION
+// ===============================
+function showBadges(filter) {
+    const points = parseInt(localStorage.getItem("points")) || 0;
+
+    achievements.forEach(a => {
+        const el = document.getElementById("badge-" + a.id);
+        if (!el) return;
+
+        if (filter === "all") {
+            el.classList.remove("hidden");
+        } else if (filter === "locked") {
+            // Show only if badge is locked
+            if (points < a.points) {
+                el.classList.remove("hidden");
+            } else {
+                el.classList.add("hidden");
+            }
+        }
+    });
+}
+function renderActivities() {
+    const activityContainer = document.getElementById("activityList");
+    const activities = JSON.parse(localStorage.getItem("activities")) || [];
+
+    activityContainer.innerHTML = ""; // Clear old content
+
+    activities.forEach(a => {
+        const div = document.createElement("div");
+        div.className = "group flex items-center gap-4 p-4 rounded-xl bg-slate-50 dark:bg-white/5 hover:bg-emerald-50 dark:hover:bg-emerald-500/10 transition-all border border-transparent hover:border-emerald-100 dark:hover:border-emerald-500/20";
+
+        div.innerHTML = `
+        <div class="size-12 flex items-center justify-center bg-emerald-500/20 text-emerald-600 rounded-xl group-hover:bg-emerald-500 group-hover:text-white transition-all">
+            <span class="material-symbols-outlined font-fill">local_drink</span>
+        </div>
+        <div class="flex-1">
+            <p class="text-sm font-black">${a.action}</p>
+            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wide">${a.time}</p>
+        </div>
+        <div class="text-right">
+            <p class="text-sm font-black text-emerald-500">+${a.points} pts</p>
+        </div>
+        `;
+
+        activityContainer.appendChild(div);
+    });
+}
+function openProfileModal() {
+    const modal = document.getElementById("profileModal");
+    const card = document.getElementById("profileModalCard");
+
+    // Update dynamic content (optional, if you want real points/level)
+    const points = parseInt(localStorage.getItem("points")) || 0;
+    const level = Math.floor(points / 200);
+
+    document.getElementById("profilePoints").innerText = points;
+    document.getElementById("profileLevel").innerText = level;
+
+    modal.classList.remove("hidden");
+    setTimeout(() => {
+        card.classList.remove("scale-90", "opacity-0");
+        card.classList.add("scale-100", "opacity-100");
+    }, 50);
+}
+
+function closeProfile() {
+    const modal = document.getElementById("profileModal");
+    const card = document.getElementById("profileModalCard");
+
+    card.classList.remove("scale-100", "opacity-100");
+    card.classList.add("scale-90", "opacity-0");
+
+    setTimeout(() => {
+        modal.classList.add("hidden");
+    }, 200);
+}
+const leaderboardItems = document.querySelectorAll(".leaderboard-item"); // add this class to leaderboard rows
+
+leaderboardItems.forEach(item => {
+    item.addEventListener("click", () => {
+        const username = item.querySelector("p").innerText;
+        alert(username + " profile clicked!");
+        // Or open a modal with their stats
+    });
+});
+// Modal elements
+const userModal = document.getElementById("userModal");
+const modalAvatar = document.getElementById("modalAvatar");
+const modalName = document.getElementById("modalName");
+const modalTitle = document.getElementById("modalTitle");
+const modalPoints = document.getElementById("modalPoints");
+const modalLevel = document.getElementById("modalLevel");
+
+// Sample data for leaderboard
+const leaderboardUsers = {
+  1: {
+    name: "Sarah Jenkins",
+    title: "Platinum Recycler",
+    avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuCAz5he9Klqvivakmbf9ow5YhJc_OVnrYP85iTVzcWRd-aLzIXgBRr2wRhONInx5tbW-0czivphYK8Y9j-wbUfEQ3QQJU7iWJYebLhFuOwqZB1RQh2PoGMjduXKpvxUWDB8_-dCVBHeZlVAXfK1jsIAloIJp4LXVUbBqkIRc41a4MpDgona1G1h5SBEejdNUMK7GPTZogRciqeWi1Xc3yoziLPgmZHEBzLyK9-IOGuamWsD_vA3jNvXi9d4xfAKmqC95oe9mlk6PiY",
+    points: "18,200",
+    level: "20"
+  },
+  2: {
+    name: "Marcus Chen",
+    title: "Gold Recycler",
+    avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuBOUDFiBAp6f90tCI25RDj-yCUcUH8V739bI6ilwSSUwEjbRaZH0BEMD0mMFWK-n6Hrf3Ku3chBaIvcUoS1QSQwarspdj0AVywN6AbLUFJyN2_1dQtdFBbYU7Q76irJgYEwvY_Uq1riciUX7h6qWbL7aPYzUgRWzWMzrTLnvVxxKP2LbQFcYiSgEj-zxW0ZLx9224GFTEP0TnKB84OuAPjRsKB-K5OpudnyIqkZqOfWGfpixzKT26dfXKpUiDY42JqO27Ii0dlk5U4",
+    points: "15,900",
+    level: "18"
+  },
+  3: {
+    name: "Elena Rodriguez",
+    title: "Silver Recycler",
+    avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuC_TlJu-u1eCY_vpVcmlJUkdUNzTBMqrynvfCESpfaqoCpfxTzYkpwRsE_G551eFUDFR5qsP03uQckHJ7u6G57Smal1XkBPZX1FDwYCGvlNXFi9e1RzJGl7C5_XTQC3sPdmSvDVBOOOOfbIDvyuHjqC_0oTNJdBPaMZ4986zgP6d8xOQEnFFWEF0LSRKuQ0HYGodt5Dty0S5Vo-fiN3HhaxXDKDIPawMuUVkVwGpaT7HQTqMa_7ZEZAe4rgFqoxVqOaxp7EsJTngvI",
+    points: "14,100",
+    level: "16"
+  }
+};
+
+// ===============================
+// 🔹 BADGE MODAL
+// ===============================
+function openBadge(id) {
+    const badge = achievements.find(a => a.id === id);
+    if (!badge) return;
+
+    const modal = document.getElementById("badgeModal");
+    const card = document.getElementById("modalCard");
+
+    document.getElementById("modalTitle").innerText = badge.title;
+    document.getElementById("modalIcon").innerHTML = `<span class="material-symbols-outlined">${getBadgeIcon(id)}</span>`;
+    document.getElementById("modalDesc").innerText = badge.desc + " 🎉 Unlocked!";
+    document.getElementById("progressBar").style.width = "100%";
+    const points = parseInt(localStorage.getItem("points")) || 0;
+    document.getElementById("progressText").innerText = `${points} / ${badge.points} points`;
+
+    modal.classList.remove("hidden");
+    setTimeout(() => card.classList.remove("scale-90", "opacity-0"), 50);
+}
+
+function closeBadgeModal() {
+    const modal = document.getElementById("badgeModal");
+    const card = document.getElementById("modalCard");
+
+    card.classList.add("scale-90", "opacity-0");
+    setTimeout(() => modal.classList.add("hidden"), 200);
+}
+
+// ===============================
+// 🔹 USER MODAL (Leaderboard/Profile)
+// ===============================
+function openUserModal(userId) {
+    const user = leaderboardUsers[userId];
+    const modal = document.getElementById("userModal");
+    const card = modal.firstElementChild;
+
+    modalAvatar.style.backgroundImage = `url('${user.avatar}')`;
+    modalName.textContent = user.name;
+    modalTitle.textContent = user.title;
+    modalPoints.textContent = user.points;
+    modalLevel.textContent = user.level;
+
+    modal.classList.remove("hidden");
+    setTimeout(() => card.classList.remove("scale-90", "opacity-0"), 50);
+}
+
+function closeUserModal() {
+    const modal = document.getElementById("userModal");
+    const card = modal.firstElementChild;
+
+    card.classList.add("scale-90", "opacity-0");
+    setTimeout(() => modal.classList.add("hidden"), 200);
+}
+
+// ===============================
+// Attach click events
+// ===============================
+document.querySelectorAll(".leaderboard-item").forEach((el, i) => {
+    el.addEventListener("click", () => openUserModal(i + 1));
+});
