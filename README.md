@@ -1,7 +1,5 @@
 ---
 
-# 📄 **Software Requirements Specification (SRS)**
-
 ## **EcoSort – Waste Classification & Smart Disposal System**
 
 ---
