@@ -255,3 +255,5 @@ Show nearest disposal points
   * Community leaderboard
 
 ---
+<img width="197" height="568" alt="image" src="https://github.com/user-attachments/assets/2bb06225-2ee2-47b8-888f-9ba348dab24b" />
+
