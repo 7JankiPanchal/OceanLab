@@ -259,8 +259,6 @@ Show nearest disposal points
 
 <img width="940" height="627" alt="image" src="https://github.com/user-attachments/assets/56134f9d-516e-49dc-9322-b0e31da9522c" />
 
-<img width="197" height="568" alt="image" src="https://github.com/user-attachments/assets/2bb06225-2ee2-47b8-888f-9ba348dab24b" />
-
 <img width="898" height="613" alt="image" src="https://github.com/user-attachments/assets/4e0a79d4-21ef-421c-94fa-8b39cef2d522" />
 
 <img width="940" height="627" alt="image" src="https://github.com/user-attachments/assets/eb5530cb-a010-4113-8343-a05639ec8cb7" />
