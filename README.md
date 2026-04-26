@@ -265,6 +265,13 @@ Show nearest disposal points
 
 <img width="940" height="627" alt="image" src="https://github.com/user-attachments/assets/d4edadfc-35cb-47cd-9555-edd7e25cfad3" />
 
+## ER Diagram
+
+The ER diagram below illustrates the database structure of the Waste Classifier System, including the relationships between users, waste categories, classification history, and badges.
+
+<img width="1536" height="1024" alt="oceanlab(ER)" src="https://github.com/user-attachments/assets/caeb04d6-121a-4e13-9bd9-d3b9f8c03544" />
+
+
 
 
 
